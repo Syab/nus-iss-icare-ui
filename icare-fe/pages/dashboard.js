@@ -1,12 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
+import Paper from '@material-ui/core/Paper';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-// import Button from '@material-ui/core/Button';
-// import Typography from '@material-ui/core/Typography';
+import Typography from "@material-ui/core/Typography";
+import DashboardTable from "../components/DataTable/DashboardTable";
 import styles from "../styles/Page.module.css";
 
 function DashboardPage() {
@@ -17,12 +16,15 @@ function DashboardPage() {
                     Welcome back Sarah!
                 </h1>
                 <p>Pick an option for today!</p>
-
                 <div className={styles.grid}>
+                    <Typography variant='h3'>Policy Overview</Typography>
+                    <Paper className={styles.paper}>
+                        <DashboardTable/>
+                    </Paper>
                     <Card className={styles.card}>
                         <CardActionArea>
                             <CardContent>
-                                <Link href="/claimManagement"><h2>Submit a Claim &rarr;</h2></Link>
+                                <Link href="/claimManagement/claimSubmit"><h2>Submit a Claim &rarr;</h2></Link>
                                 <p>Get your claims approved!</p>
                             </CardContent>
                         </CardActionArea>

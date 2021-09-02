@@ -12,8 +12,8 @@ export default function NavBar() {
         <div className={styles.root}>
             <AppBar position="static">
                 <Toolbar className={styles.appBar}>
-                    <Typography variant="h4" className={styles.title}>
-                        Insurance Care Platform
+                    <Typography variant='h3' className={styles.title}>
+                        iCare
                     </Typography>
                     <Button classes={{
                         root: styles.navButtonRoot,
