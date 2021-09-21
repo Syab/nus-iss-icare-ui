@@ -6,7 +6,7 @@ Parameters:
   Environment:
     Type: String
     Description: Choose environment for stack
-    AllowedValues: ["test","dev","prd"]
+    AllowedValues: ["dev","prd"]
 
 Mappings:
   S3Mapping:
@@ -56,7 +56,7 @@ Resources:
         - Key: "Organization"
           Value: "nus"
         - Key: "Environment"
-          Value: "test"
+          Value: "dev"
 
 
 Outputs:
