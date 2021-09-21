@@ -1,0 +1,79 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Description: S3 Bucket for Terraform state files
+
+Parameters:
+  Environment:
+    Type: String
+    Description: Choose environment for stack
+    AllowedValues: ["test","dev","prd"]
+
+Mappings:
+  S3Mapping:
+    tags:
+      project: icare
+      organization: nus
+      department: iss
+      zone: private
+      managedby: AWS
+      createdby: Syab
+    subnet:
+      tier: app
+
+Resources:
+  S3Bucket:
+    Type: 'AWS::S3::Bucket'
+    DeletionPolicy: Delete
+    Properties:
+      BucketName:
+        Fn::Join:
+          - "-"
+          - - s3
+            - Fn::FindInMap:
+                - S3Mapping
+                - tags
+                - organization
+            - Fn::FindInMap:
+                - S3Mapping
+                - tags
+                - department
+            - Fn::FindInMap:
+                - S3Mapping
+                - tags
+                - project
+            - Ref: Environment
+      AccessControl: Private
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      VersioningConfiguration:
+        Status: Enabled
+      Tags:
+        - Key: "Project"
+          Value: "icare"
+        - Key: "Organization"
+          Value: "nus"
+        - Key: "Environment"
+          Value: "test"
+
+
+Outputs:
+  s3bucketarn:
+    Description: ARN for s3bucketarn variable if present
+    Value:
+      Fn::GetAtt:
+        - S3Bucket
+        - Arn
+    Export:
+      Name:
+        Fn::Sub: "${AWS::StackName}-s3bucketarn"
+  s3bucket:
+    Description: Name of S3 bucket
+    Value:
+      Ref: S3Bucket
+    Export:
+      Name:
+        Fn::Sub: "${AWS::StackName}-s3bucket"
+
