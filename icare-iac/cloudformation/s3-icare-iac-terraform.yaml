@@ -14,11 +14,10 @@ Mappings:
       project: icare
       organization: nus
       department: iss
-      zone: private
       managedby: AWS
       createdby: Syab
     subnet:
-      tier: app
+      tier: private
 
 Resources:
   S3Bucket:
@@ -56,7 +55,7 @@ Resources:
         - Key: "Organization"
           Value: "nus"
         - Key: "Environment"
-          Value: "dev"
+          Value: "prd"
 
 
 Outputs:
