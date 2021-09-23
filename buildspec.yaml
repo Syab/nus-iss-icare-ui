@@ -6,7 +6,7 @@ phases:
       - echo Logging in to Amazon ECR...
       - aws --version
       - $(aws ecr get-login --region ap-southeast-1 --no-include-email)
-      - FE_REPOSITORY_URI=047853260239.dkr.ecr.ap-southeast-1.amazonaws.com/icare-fe
+      - REPOSITORY_URI=047853260239.dkr.ecr.ap-southeast-1.amazonaws.com/icare-fe
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=latest}
   build:
@@ -14,11 +14,11 @@ phases:
       - echo Build started on `date`
       - echo Building the iCare Frontend Docker image...
       - cd $CODEBUILD_SRC_DIR/icare-fe
-      - docker build -t $FE_REPOSITORY_URI:latest .
-      - docker tag $FE_REPOSITORY_URI:latest $$FE_REPOSITORY_URI:$IMAGE_TAG
+      - docker build -t $REPOSITORY_URI:latest .
+      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
-      - docker push $FE_REPOSITORY_URI:latest
-      - docker push $FE_REPOSITORY_URI:$IMAGE_TAG
+      - docker push $REPOSITORY_URI:latest
+      - docker push $REPOSITORY_URI:$IMAGE_TAG
