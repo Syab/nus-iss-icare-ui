@@ -4,7 +4,6 @@ import NavBar from "../NavBar/NavBar";
 function Layout({children}){
     return (
         <div>
-
             <main>
                 <NavBar />
                 {children}
