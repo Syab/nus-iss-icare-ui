@@ -66,3 +66,9 @@ module "ecr" {
   source = "./module/ecr"
   icare_ecr_image_names=["icare-fe","icare-policymgmt","icare-claimmgmt","icare-reporting","icare-auth"]
 }
+
+module "codebuild" {
+  source                    = "./module/codebuild"
+  codebuild_icare_frontend  = "codebuild-icare-frontend"
+  codebuild_iam_role_arn    = module.bootstrap.codebuild_iam_role_arn
+}

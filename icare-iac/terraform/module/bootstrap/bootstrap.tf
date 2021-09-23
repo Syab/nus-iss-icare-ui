@@ -65,6 +65,22 @@ resource "aws_iam_role_policy" "codebuild_iam_role_policy" {
   "Statement": [
     {
       "Effect": "Allow",
+      "Action": [
+          "ecr:GetAuthorizationToken",
+          "sts:GetServiceBearerToken",
+          "ecr:BatchCheckLayerAvailability",
+          "ecr:GetRepositoryPolicy",
+          "ecr:DescribeRepositories",
+          "ecr:DescribeImages",
+          "ecr:InitiateLayerUpload",
+          "ecr:UploadLayerPart",
+          "ecr:CompleteLayerUpload",
+          "ecr:PutImage"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
       "Resource": [
         "*"
       ],
