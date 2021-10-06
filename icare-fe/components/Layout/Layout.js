@@ -1,11 +1,11 @@
-import React from 'react'
-// import NavBar from "../NavBar/NavBar.js";
+import React from 'react';
+import NaviBar from "../NavBar/NaviBar";
 
 function Layout({children}){
     return (
         <div>
             <main>
-                {/*<NavBar/>*/}
+                <NaviBar/>
                     {children}
             </main>
         </div>

@@ -3,7 +3,8 @@
 }
 
 .appBar {
-    background: linear-gradient(45deg, #6b90fe 30%, #d96a1f 90%);
+    /*background: linear-gradient(45deg, #6b90fe 30%, #d96a1f 90%);*/
+    background: #2f2e2e;
 }
 
 .title {
