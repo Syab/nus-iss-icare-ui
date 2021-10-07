@@ -64,7 +64,9 @@ module "ecs" {
 
 module "ecr" {
   source = "./module/ecr"
-  icare_ecr_image_names=["icare-fe","icare-policymgmt","icare-claimmgmt","icare-reporting","icare-auth", "icare-search", "icare-policyprovider"]
+  icare_ecr_image_names=["icare-fe","icare-policymgmt","icare-claimmgmt",
+                         "icare-reporting","icare-auth", "icare-search",
+                         "icare-policyprovider"]
 }
 
 module "codebuild" {
@@ -73,4 +75,14 @@ module "codebuild" {
   codebuild_icare_auth      = "codebuild-icare-auth"
   codebuild_icare_policymgmt= "codebuild-icare-policymgmt"
   codebuild_iam_role_arn    = module.bootstrap.codebuild_iam_role_arn
+}
+
+module "rds" {
+  source = "./module/rds"
+  icare_claimmgmt_identifier = "rds-icare-claimmgmt-dev"
+  icare_claimmgmt_allocated_storage = var.icare_claimmgmt_allocated_storage
+  icare_claimmgmt_dbname = var.icare_claimmgmt_dbname
+  icare_claimmgmt_password = var.icare_claimmgmt_password
+  icare_claimmgmt_username = var.icare_claimmgmt_username
+  icare_claimmgmt_dbport = var.icare_claimmgmt_dbport
 }
