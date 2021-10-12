@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
+    <preConditions>
+        <dbms type="mysql" />
+        <runningAs username="icareadmin" />
+    </preConditions>
+    <changeSet id="create_claim_document" author="syab">
+        <preConditions  onFail="MARK_RAN" >
+            <not>
+                <tableExists tableName="claim_document"/>
+            </not>
+        </preConditions>
+        <createTable tableName="claim_document">
+            <column name="id" type="int(11)"><constraints primaryKey="true" nullable="false" /></column>
+            <column name="claim_id" type="int(11)"><constraints nullable="false" /></column>
+            <column name="document_name" type="varchar(255)"><constraints nullable="false" /></column>
+            <column name="document_path" type="varchar(255)"><constraints nullable="false" /></column>
+            <column name="document_file" type="varchar(255)"><constraints nullable="false" /></column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="create_time" type="datetime"><constraints nullable="false" /></column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="update_time" type="timestamp"><constraints nullable="false" /></column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

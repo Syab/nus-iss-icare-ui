@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
+    <preConditions>
+        <dbms type="mysql" />
+        <runningAs username="icareadmin" />
+    </preConditions>
+    <changeSet id="create_claim" author="syab">
+        <preConditions  onFail="MARK_RAN" >
+            <not>
+                <tableExists tableName="claim"/>
+            </not>
+        </preConditions>
+        <createTable tableName="claim">
+            <column name="id" type="int(11)"><constraints primaryKey="true" nullable="false" /></column>
+            <column name="user_id" type="int(11)"><constraints nullable="false" /></column>
+            <column name="document_id" type="int(11)"><constraints nullable="false" /></column>
+            <column name="policy_id" type="varchar(255)"><constraints nullable="false" /></column>
+            <column name="claim_status" type="varchar(255)"><constraints nullable="false" /></column>
+            <column name="reject_reason" type="varchar(255)"><constraints nullable="false" /></column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="create_time" type="datetime"><constraints nullable="false" /></column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="update_time" type="timestamp"><constraints nullable="false" /></column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
