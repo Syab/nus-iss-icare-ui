@@ -1,14 +1,15 @@
 import React from 'react';
 import styles from '../../styles/Page.module.css'
+import MainLayout from "../../page-layouts/MainLayout/MainLayout";
+import ClaimSubmitView from "../../page-views/ClaimView/ClaimSubmitView";
 
 function ClaimSubmitPage() {
+    const ClaimSubmitPageContent = <ClaimSubmitView/>
     return (
         <div>
-            <main className={styles.main}>
-                <h2 className={styles.title}>
-                    Submit a Claim
-                </h2>
-            </main>
+            <MainLayout
+                children={ ClaimSubmitPageContent }
+            />
         </div>
     )
 }
