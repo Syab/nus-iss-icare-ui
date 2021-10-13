@@ -1,7 +1,7 @@
 import React, {Fragment} from "react";
 import '../styles/globals.css'
 import Head from "next/head";
-import CssBaseline from "@mui/material/CssBaseline";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 function MyApp({ Component, pageProps }) {
   return (

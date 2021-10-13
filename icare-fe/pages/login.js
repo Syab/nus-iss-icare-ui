@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import Head from "next/head";
 import Link from "next/link"
 import styles from '../styles/Page.module.css'
-import {Button} from "@mui/material";
+import {Button} from "@material-ui/core";
 
 function Login() {
     return (

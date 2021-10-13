@@ -1,0 +1,65 @@
+.root{
+    min-width: 275px;
+    margin: 10px;
+}
+
+.title {
+    margin: 0;
+    padding-bottom: 10px;
+    line-height: 1.15;
+    font-size: 4rem;
+    text-align: left;
+}
+
+.description {
+    text-align: left;
+    padding: 5px 0 20px 0;
+}
+
+.card {
+    display: flex;
+    margin: 1rem;
+    padding: 1.5rem;
+    text-align: left;
+    color: inherit;
+    text-decoration: none;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+    width: 55%;
+}
+
+.card:hover,
+.card:focus,
+.card:active {
+    color: rgb(58, 187, 193);
+    border-color: #3abbc1;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1 0 auto;
+}
+
+.cover{
+    height: 30px;
+    width: 30px;
+}
+
+.bullet {
+    margin: 2px;
+    display: inline-block;
+    transform: scale(0.8);
+}
+
+.para{
+    line-height: 1.6;
+}
+
+.pos {
+    margin-bottom: 12px;
+}

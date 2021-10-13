@@ -22,43 +22,35 @@
     </dependency>
   </dependencies>
 
-<!--  <profiles>-->
-<!--    <profile>-->
-<!--      <id>update</id>-->
-<!--      <activation>-->
-<!--        <activeByDefault>false</activeByDefault>-->
-<!--      </activation>-->
-      <build>
-        <finalName>claim-liquibase-migration</finalName>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.8.1</version>
-            <configuration>
-              <source>1.8</source>
-              <target>1.8</target>
-            </configuration>
-          </plugin>
+    <build>
+      <finalName>claim-liquibase-migration</finalName>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.8.1</version>
+          <configuration>
+            <source>1.8</source>
+            <target>1.8</target>
+          </configuration>
+        </plugin>
 
-          <plugin>
-            <groupId>org.liquibase</groupId>
-            <artifactId>liquibase-maven-plugin</artifactId>
-            <version>4.5.0</version>
-            <configuration>
-              <!-- For AWS deployment only-->
+        <plugin>
+          <groupId>org.liquibase</groupId>
+          <artifactId>liquibase-maven-plugin</artifactId>
+          <version>4.5.0</version>
+          <configuration>
+            <!-- For AWS deployment only-->
 <!--              <propertyFile>src/main/config/master.properties</propertyFile>-->
-              <changeLogFile>src/main/config/master.xml</changeLogFile>
-              <driver>com.mysql.cj.jdbc.Driver</driver>
-              <url>jdbc:mysql://localhost:3306/db</url>
-              <username>mysqluser</username>
-              <password>mysqlpw</password>
-              <promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
-<!--    </profile>-->
-<!--  </profiles>-->
+            <changeLogFile>src/main/config/master.xml</changeLogFile>
+            <driver>com.mysql.cj.jdbc.Driver</driver>
+            <url>jdbc:mysql://localhost:3306/db</url>
+            <username>mysqluser</username>
+            <password>mysqlpw</password>
+            <promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
+          </configuration>
+        </plugin>
+      </plugins>
+    </build>
 
 </project>

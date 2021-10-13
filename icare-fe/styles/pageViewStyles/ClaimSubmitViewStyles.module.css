@@ -1,0 +1,17 @@
+.root {
+
+}
+
+.title {
+    color: #0070f3;
+}
+
+.gridContainer {
+
+}
+
+.gridItem {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: auto;
+}

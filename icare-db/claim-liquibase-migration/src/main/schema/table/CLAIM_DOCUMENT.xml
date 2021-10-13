@@ -5,7 +5,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
     <preConditions>
         <dbms type="mysql" />
-        <runningAs username="icareadmin" />
+        <runningAs username="mysqluser" />
     </preConditions>
     <changeSet id="create_claim_document" author="syab">
         <preConditions  onFail="MARK_RAN" >

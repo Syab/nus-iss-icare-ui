@@ -1,19 +1,27 @@
 import React from 'react';
 import styles from '../../styles/Page.module.css'
-import { styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
-import {Typography} from "@mui/material";
+// import claimViewStyles from '../../styles/pageViewStyles/ClaimSubmitViewStyles.module.css'
+import { makeStyles } from '@material-ui/core/styles';
+import { Paper, Grid, Typography} from "@material-ui/core";
 import ClaimSubmitForm from "../../components/Claim/ClaimSubmitForm";
 
-const Item = styled(Paper)(({ theme }) => ({
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
+const useStyles = makeStyles((theme) => ({
+    root: {
+        flexGrow: 1,
+    },
+    paper: {
+        padding: theme.spacing(1),
+        textAlign: 'center',
+        color: theme.palette.text.secondary,
+    },
+    subtitle: {
+        margin: theme.spacing(1),
+        padding: theme.spacing(1)
+    },
 }));
 
 function ClaimSubmitView({children, props}) {
+    const classes = useStyles();
     return (
         <div>
             <main className={styles.main}>
@@ -24,12 +32,12 @@ function ClaimSubmitView({children, props}) {
             <Grid container spacing={2} columns={12}>
                 <Grid item xs={2} />
                 <Grid item xs={8}>
-                    <Item>
-                        <Typography variant='h5'>
+                    <Paper className={classes.paper}>
+                        <Typography variant='h5' className={classes.subtitle}>
                             Claim Submission Details
                         </Typography>
                         <ClaimSubmitForm/>
-                    </Item>
+                    </Paper>
                 </Grid>
                 <Grid item xs={2} />
             </Grid>

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../../styles/Page.module.css'
 
-function ViewPolicyPage() {
+export default function ViewPolicyView() {
     return (
         <div>
             <main className={styles.main}>
@@ -12,5 +12,3 @@ function ViewPolicyPage() {
         </div>
     )
 }
-
-export default ViewPolicyPage;

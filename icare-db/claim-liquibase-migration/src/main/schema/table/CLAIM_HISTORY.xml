@@ -5,14 +5,14 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
     <preConditions>
         <dbms type="mysql" />
-        <runningAs username="icareadmin" />
+        <runningAs username="mysqluser" />
     </preConditions>
     <changeSet id="create_claim_history" author="syab">
-        <preConditions  onFail="MARK_RAN" >
-            <not>
-                <tableExists tableName="claim_history"/>
-            </not>
-        </preConditions>
+<!--        <preConditions  onFail="MARK_RAN" >-->
+<!--            <not>-->
+<!--                <tableExists tableName="claim_history"/>-->
+<!--            </not>-->
+<!--        </preConditions>-->
         <createTable tableName="claim_history">
             <column name="id" type="int(11)"><constraints primaryKey="true" nullable="false" /></column>
             <column name="claim_id" type="int(11)"><constraints nullable="false" /></column>
