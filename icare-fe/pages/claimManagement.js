@@ -8,7 +8,7 @@ function ClaimManagementPage() {
     return (
         <div>
             <MainLayout
-                children={ ClaimManagementPageContent }
+                content={ ClaimManagementPageContent }
             />
         </div>
     )

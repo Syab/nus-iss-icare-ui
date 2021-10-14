@@ -8,7 +8,7 @@ export default function PolicyManagementPage() {
 
         <div>
             <MainLayout
-                children={ PolicyManagementPageContent }
+                content={ PolicyManagementPageContent }
             />
         </div>
     )

@@ -9,7 +9,7 @@ export default function SearchPolicyPage() {
 
         <div>
             <MainLayout
-                children={ SearchPolicyContent }
+                content={ SearchPolicyContent }
 
             />
         </div>

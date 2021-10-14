@@ -162,6 +162,26 @@ const policytypes = [
     {
       "id": 2,
       "policy_type" : "Accident"
+    },
+    {
+      "id": 2,
+      "policy_type" : "Accident"
+    },
+    {
+      "id": 2,
+      "policy_type" : "Accident"
+    },
+    {
+      "id": 2,
+      "policy_type" : "Accident"
+    },
+    {
+      "id": 2,
+      "policy_type" : "Accident"
+    },
+    {
+      "id": 2,
+      "policy_type" : "Accident"
     }
 ]
 

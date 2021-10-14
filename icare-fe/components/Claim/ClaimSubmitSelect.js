@@ -2,27 +2,40 @@ import * as React from 'react';
 import { Box, InputLabel, MenuItem, FormControl, Select }
     from '@material-ui/core';
 
-export default function ClaimTypeSelect() {
-    const [policyProvider, setPolicyProvider] = React.useState('');
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+    PaperProps: {
+        style: {
+            maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+            width: 250,
+        },
+    },
+};
+
+export default function ClaimTypeSelect(props) {
+    const { label, optionList } = props;
+    const [item, setItem] = React.useState('');
 
     const handleChange = (event) => {
-        setPolicyProvider(event.target.value);
+        setItem(event.target.value);
     };
 
     return (
         <Box sx={{ minWidth: 120 }}>
             <FormControl variant="outlined" fullWidth>
-                <InputLabel id="select-label">Policy Type</InputLabel>
+                <InputLabel id="select-label">{label}</InputLabel>
                 <Select
                     labelId="select-label"
                     id="simple-select"
-                    value={policyProvider}
-                    label="Policy Provider"
+                    value={item}
+                    label={label}
                     onChange={handleChange}
+                    MenuProps={MenuProps}
                 >
-                    <MenuItem value={10}>AXA</MenuItem>
-                    <MenuItem value={20}>Tokio Marine</MenuItem>
-                    <MenuItem value={30}>Manulife</MenuItem>
+                    {optionList.map((item)=>(
+                        <MenuItem key={item} value={item}>{item}</MenuItem>
+                    ))}
                 </Select>
             </FormControl>
         </Box>

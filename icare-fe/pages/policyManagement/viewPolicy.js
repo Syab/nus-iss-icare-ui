@@ -8,7 +8,7 @@ export default function ViewPolicyPage() {
 
         <div>
             <MainLayout
-                children={ViewPolicyContent}
+                content={ViewPolicyContent}
             />
         </div>
     )

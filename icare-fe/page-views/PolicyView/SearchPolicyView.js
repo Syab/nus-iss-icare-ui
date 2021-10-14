@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Image from 'next/image'
-import Link from 'next/link';
+import Image from 'next/image';
 import axios from "axios";
 import {SERVER} from "../../config";
 import styles from '../../styles/Page.module.css';
@@ -17,7 +16,7 @@ const useStyles = makeStyles({
 
 export default function SearchPolicyView({props}) {
     const classes = useStyles();
-    const API = `${SERVER}/api/policies`;
+    const API = `${SERVER}/api/public`;
     const [isLoading, setIsLoading] = useState(true)
     const [data, setData] = useState([]);
 
@@ -46,8 +45,7 @@ export default function SearchPolicyView({props}) {
     }, [])
 
     const policies = data
-    // const someTitle = allPolicies[0]
-    console.log(policies)
+
     return (
         <div>
             <main className={styles.main}>
@@ -75,13 +73,14 @@ export default function SearchPolicyView({props}) {
                                         <Typography variant="h6" color="textSecondary">
                                             {policy.policy_company}
                                         </Typography>
+                                        <Typography variant='h5'>
+                                            {policy.policy_name}
+                                        </Typography>
+                                        <p className={searchPolicyStyles.para}>
+                                            <Chip variant="outlined" size="small" label={policy.policy_type}/> &nbsp;&nbsp; {policy.policy_description}
+                                        </p>
                                     </a>
-                                    <Typography variant='h5'>
-                                        {policy.policy_name}
-                                    </Typography>
-                                    <p className={searchPolicyStyles.para}>
-                                        <Chip variant="outlined" size="small" label={policy.policy_type}/> &nbsp;&nbsp; {policy.policy_description}
-                                    </p>
+
                                 </CardActionArea>
                             </CardContent>
                         </div>

@@ -8,7 +8,7 @@ const DashboardPage = () => {
     return (
         <div>
             <MainLayout
-                children= { DashboardPageContent }
+                content= { DashboardPageContent }
             />
         </div>
     )

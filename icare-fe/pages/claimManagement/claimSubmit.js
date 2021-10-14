@@ -7,7 +7,7 @@ function ClaimSubmitPage() {
     return (
         <div>
             <MainLayout
-                children={ ClaimSubmitPageContent }
+                content={ ClaimSubmitPageContent }
             />
         </div>
     )

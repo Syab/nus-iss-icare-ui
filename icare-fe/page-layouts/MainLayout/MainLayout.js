@@ -7,15 +7,20 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import styles from '../../styles/pageLayoutStyles/MainLayoutStyle.module.css';
 
-function MainLayout({children,props}){
+function MainLayout(props){
+    const {content} = props
     return (
         <div>
             <div>
                 <Box sx={{ flexGrow: 1 }}>
                     <AppBar position="static">
                         <Toolbar  className={styles.appBar}>
-                            <Typography variant="h5" className={styles.title} component="div" sx={{ flexGrow: 1 }}>
-                                iCare
+                            <Typography
+                                        variant="h5"
+                                        className={styles.title}
+                                        component="div"
+                                        sx={{ flexGrow: 1 }}>
+                                <strong>insuranceCare</strong>
                             </Typography>
                             <Button classes={{
                                 root: styles.navButtonRoot,
@@ -40,7 +45,7 @@ function MainLayout({children,props}){
                 </Box>
             </div>
             <main>
-                {children}
+                {content}
             </main>
         </div>
 
