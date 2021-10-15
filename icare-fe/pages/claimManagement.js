@@ -1,13 +1,13 @@
 import React from 'react';
 // import styles from '../styles/Page.module.css'
-import MainLayout from "../page-layouts/MainLayout/MainLayout";
+import Layout from "../page-layouts/Layout/Layout";
 import ClaimManagementView from "../page-views/ClaimView/ClaimManagementView";
 
 function ClaimManagementPage() {
     const ClaimManagementPageContent = <ClaimManagementView/>
     return (
         <div>
-            <MainLayout
+            <Layout
                 content={ ClaimManagementPageContent }
             />
         </div>

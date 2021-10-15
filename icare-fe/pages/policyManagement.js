@@ -1,13 +1,13 @@
 import React from 'react';
 import PolicyManagementView from "../page-views/PolicyView/PolicyManagementView";
-import MainLayout from "../page-layouts/MainLayout/MainLayout";
+import Layout from "../page-layouts/Layout/Layout";
 
 export default function PolicyManagementPage() {
     const PolicyManagementPageContent = <PolicyManagementView/>
     return (
 
         <div>
-            <MainLayout
+            <Layout
                 content={ PolicyManagementPageContent }
             />
         </div>

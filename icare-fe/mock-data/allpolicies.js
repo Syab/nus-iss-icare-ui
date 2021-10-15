@@ -196,8 +196,64 @@ const policycompanies = [
   }
 ]
 
+const mypolicies = [
+  {
+    "_id":"615184f4c84ad3bad71abded",
+    "policyId":"",
+    "policycompany":"AXA",
+    "policytype":"LIFE",
+    "policyname":"AXA Life Treasure (II)",
+    "policyno":"AXA20210925",
+    "userId":"S6099358J",
+    "startdate":"2020-01-01",
+    "enddate":"2022-12-31",
+    "status": "in-force",
+    "advisorId":"S1872602A",
+    "advisorname":"JACKIE CHAN",
+    "advisormobile":"99876543",
+    "email":"JC@AXA.com.sg",
+    "maxclaimable":""
+  },
+  {
+    "_id":"615184f4c84ad3bad71abded",
+    "policyId":"",
+    "policycompany":"MANULIFE",
+    "policytype":"LIFE",
+    "policyname":"ReadyMummy",
+    "policyno":"MNL20210102",
+    "userId":"S6099358J",
+    "startdate":"2020-02-01",
+    "enddate":"2022-01-31",
+    "status": "in-force",
+    "advisorId":"S1772622B",
+    "advisorname":"HARRY POTTER",
+    "advisormobile":"99876544",
+    "email":"harrypotter@manulife.com.sg",
+    "maxclaimable":"",
+    "sumassured":""
+  },
+  {
+    "_id":"615184f4c84ad3bad71abded",
+    "policyId":"",
+    "policycompany":"AVIVA",
+    "policytype":"HEALTH",
+    "policyname":"MyShield - Integrated Shield Plan",
+    "policyno":"AVI20200325",
+    "userId":"S6099358J",
+    "startdate":"2020-03-01",
+    "enddate":"2021-10-01",
+    "status": "expired",
+    "advisorId":"S1972642C",
+    "advisorname":"SALT BAE",
+    "advisormobile":"95678545",
+    "email":"saltbae@aviva.com.sg",
+    "maxclaimable":"200.00"
+  },
+]
+
 export {
     policies,
     policycompanies,
-    policytypes
+    policytypes,
+    mypolicies
 }

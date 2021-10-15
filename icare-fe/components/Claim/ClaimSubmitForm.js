@@ -3,7 +3,7 @@ import claimStyles from '../../styles/pageViewStyles/ClaimSubmitViewStyles.modul
 import { Grid, TextField, Divider,
     FormControl, InputLabel, OutlinedInput, InputAdornment }
     from "@material-ui/core";
-import ClaimSubmitSelect from "./ClaimSubmitSelect";
+import DropdownSelect from "../Common/DropdownSelect";
 import ClaimDropZone from "./ClaimDropZone";
 
 function ClaimSubmitForm(props){
@@ -22,13 +22,13 @@ function ClaimSubmitForm(props){
         <div>
             <Grid container spacing={2} columns={12}>
                 <Grid item xs={12} className={claimStyles.gridItem}>
-                    <ClaimSubmitSelect
+                    <DropdownSelect
                         label="Policy Provider"
                         optionList={policyprovider}
                     />
                 </Grid>
                 <Grid item xs={6} className={claimStyles.gridItem}>
-                    <ClaimSubmitSelect
+                    <DropdownSelect
                         label="Policy Type"
                         optionList={policytypes}
                     />
@@ -37,7 +37,7 @@ function ClaimSubmitForm(props){
                     <TextField fullWidth label="Policy No." variant="outlined" />
                 </Grid>
                 <Grid item xs={6} className={claimStyles.gridItem}>
-                    <ClaimSubmitSelect
+                    <DropdownSelect
                         label="Policy Name"
                         optionList={policynames}
                     />

@@ -1,6 +1,6 @@
 import React from 'react';
 // import { SERVER } from '../../config'
-import MainLayout from "../../page-layouts/MainLayout/MainLayout";
+import Layout from "../../page-layouts/Layout/Layout";
 import SearchPolicyView from "../../page-views/PolicyView/SearchPolicyView";
 
 export default function SearchPolicyPage() {
@@ -8,7 +8,7 @@ export default function SearchPolicyPage() {
     return (
 
         <div>
-            <MainLayout
+            <Layout
                 content={ SearchPolicyContent }
 
             />

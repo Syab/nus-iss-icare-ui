@@ -1,16 +1,14 @@
 import React from 'react';
-import styles from '../../styles/Page.module.css'
+import styles from "../../styles/Page.module.css"
 
-function ClaimSubmitPage() {
+export default function ClaimHistoryView() {
     return (
         <div>
             <main className={styles.main}>
                 <h2 className={styles.title}>
-                    Recently Submitted a Claim
+                    My Claim History
                 </h2>
             </main>
         </div>
     )
 }
-
-export default ClaimSubmitPage;

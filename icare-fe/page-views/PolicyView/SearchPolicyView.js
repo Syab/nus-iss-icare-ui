@@ -15,6 +15,7 @@ const useStyles = makeStyles({
 });
 
 export default function SearchPolicyView({props}) {
+
     const classes = useStyles();
     const API = `${SERVER}/api/public`;
     const [isLoading, setIsLoading] = useState(true)
@@ -52,7 +53,7 @@ export default function SearchPolicyView({props}) {
                 <h2 className={searchPolicyStyles.title}>
                     Policy Marketplace
                 </h2>
-                <Typography variant='p' className={searchPolicyStyles.description}>
+                <Typography variant='body1' className={searchPolicyStyles.description}>
                     Start searching for a policy for you and your loved ones
                 </Typography>
 
@@ -80,7 +81,6 @@ export default function SearchPolicyView({props}) {
                                             <Chip variant="outlined" size="small" label={policy.policy_type}/> &nbsp;&nbsp; {policy.policy_description}
                                         </p>
                                     </a>
-
                                 </CardActionArea>
                             </CardContent>
                         </div>

@@ -1,26 +1,19 @@
 import React, { Fragment } from "react";
 import Head from "next/head";
-import Link from "next/link"
-import styles from '../styles/Page.module.css'
-import {Button} from "@material-ui/core";
+import LoginLayout from "../page-layouts/LoginLayout/LoginLayout";
+import LoginForm from "../components/LoginForm";
+import LoginView from "../page-views/LoginView/LoginView";
 
-function Login() {
+export default function LoginPage() {
+    const LoginViewContent = <LoginView/>
     return (
         <Fragment>
             <Head>
                 <title>iCare Platform Login</title>
             </Head>
-            <main className={styles.main}>
-                <h1>Login Page</h1>
-                <Button>
-                    <Link href='/dashboard'>LOGIN AS USER</Link>
-                </Button>
-                <Button>
-                    <Link href='/dashboard'>LOGIN AS PROVIDER</Link>
-                </Button>
-            </main>
+                <LoginLayout
+                    content={LoginViewContent}
+                />
         </Fragment>
     )
 }
-
-export default Login;

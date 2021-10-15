@@ -1,13 +1,12 @@
 import React from 'react';
-// import styles from "../styles/Page.module.css";
-import MainLayout from "../page-layouts/MainLayout/MainLayout";
+import Layout from "../page-layouts/Layout/Layout";
 import DashboardView from "../page-views/DashboardView/DashboardView";
 
 const DashboardPage = () => {
     const DashboardPageContent = <DashboardView/>
     return (
         <div>
-            <MainLayout
+            <Layout
                 content= { DashboardPageContent }
             />
         </div>

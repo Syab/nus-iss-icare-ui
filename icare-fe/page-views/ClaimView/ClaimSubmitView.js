@@ -30,7 +30,7 @@ function ClaimSubmitView({children, props}) {
     let policytypes = []
     let policynames = []
 
-    const API = `${SERVER}/api/public`;
+    const API = `${SERVER}/api/private`;
     const [isLoading, setIsLoading] = useState(true)
     const [data, setData] = useState([]);
 
@@ -61,9 +61,9 @@ function ClaimSubmitView({children, props}) {
     const policies = data
 
     policies.forEach((obj, i) =>{
-        policyprovider.push(obj.policy_company);
-        policytypes.push(obj.policy_type);
-        policynames.push(obj.policy_name);
+        policyprovider.push(obj.policycompany);
+        policytypes.push(obj.policytype);
+        policynames.push(obj.policyname);
     })
 
     policyprovider = policyprovider.filter(getUnique);

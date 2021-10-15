@@ -25,15 +25,6 @@ function ClaimManagementView() {
                 <Card className={styles.card}>
                     <CardActionArea>
                         <CardContent>
-                            <Link href={'/claimManagement/claimSubmit'}><h2>View Recently Submitted Claim &rarr;</h2></Link>
-                            <p>View all existing policies</p>
-                        </CardContent>
-                    </CardActionArea>
-                </Card>
-
-                <Card className={styles.card}>
-                    <CardActionArea>
-                        <CardContent>
                             <Link href={'/claimManagement/claimHistory'}><h2>View Claim History &rarr;</h2></Link>
                             <p>Find a policy</p>
                         </CardContent>

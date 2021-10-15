@@ -1,5 +1,5 @@
 import React from 'react';
-import MainLayout from "../../page-layouts/MainLayout/MainLayout";
+import Layout from "../../page-layouts/Layout/Layout";
 import ViewPolicyView from "../../page-views/PolicyView/ViewPolicyView";
 
 export default function ViewPolicyPage() {
@@ -7,7 +7,7 @@ export default function ViewPolicyPage() {
     return (
 
         <div>
-            <MainLayout
+            <Layout
                 content={ViewPolicyContent}
             />
         </div>
