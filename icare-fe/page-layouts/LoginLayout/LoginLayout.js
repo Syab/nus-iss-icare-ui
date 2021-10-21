@@ -3,7 +3,7 @@ import styles from '../../styles/pageLayoutStyles/LoginLayoutStyles.module.css';
 import BGImage from "../../components/Common/BGImage";
 import { AppBar, Toolbar, Typography, Paper } from '@material-ui/core';
 
-export default function LoginLayout(props) {
+export default function LoginLayout(props,children) {
     const {content} = props
     return (
         <Fragment>

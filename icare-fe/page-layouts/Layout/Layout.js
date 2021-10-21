@@ -86,7 +86,6 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(3),
     },
     nested: {
-        paddingLeft: theme.spacing(4),
     },
 }));
 
@@ -168,11 +167,13 @@ export default function Layout(props) {
                             <ListItemText primary="Dashboard" />
                         </ListItem>
                     </Link>
+                    <Divider />
                     <ListItem button onClick={handleCClick}>
                         <ListItemIcon><Description /></ListItemIcon>
                         <ListItemText primary="Claims" />
                         {listCOpen ? <ExpandLess /> : <ExpandMore />}
                     </ListItem>
+                    <Divider />
                     <Collapse in={listCOpen} timeout="auto" unmountOnExit>
                         <List component="div" disablePadding>
                             <Link href='/claimManagement/claimSubmit'>
@@ -194,6 +195,7 @@ export default function Layout(props) {
                         <ListItemText primary="Policies" />
                         {listPOpen ? <ExpandLess /> : <ExpandMore />}
                     </ListItem>
+                    <Divider />
                     <Collapse in={listPOpen} timeout="auto" unmountOnExit>
                         <List component="div" disablePadding>
                             <Link href='/policyManagement/viewPolicy'>
@@ -208,11 +210,9 @@ export default function Layout(props) {
                                     <ListItemText primary="Shop Policies" />
                                 </ListItem>
                             </Link>
-
                         </List>
                     </Collapse>
                 </List>
-                <Divider />
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.toolbar} />

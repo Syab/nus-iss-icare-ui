@@ -1,14 +1,16 @@
 import React, {Fragment, useEffect, useState} from 'react';
 import axios from "axios";
 import {SERVER} from "../../config";
-import {todayYYYYMMDD} from "../../utils/handlers";
+import {policy_SVC, viewpolicy_ENDPOINT} from "../../utils/constants";
+import {sortObject, todayYYYYMMDD} from "../../utils/handlers";
 import styles from '../../styles/Page.module.css';
 import viewPolicyStyles from '../../styles/pageViewStyles/ViewPolicyViewStyles.module.css';
 import { makeStyles } from '@material-ui/core/styles';
-import { Accordion, AccordionSummary, AccordionDetails, Typography,
-    List, ListItem, ListItemText, Chip }
+import { Accordion, AccordionSummary, AccordionDetails, Chip, Typography,
+    List, ListItem, ListItemText }
     from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import PolicyTable from "../../components/Policy/PolicyTable";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -19,12 +21,18 @@ const useStyles = makeStyles((theme) => ({
         fontSize: theme.typography.pxToRem(15),
         fontWeight: theme.typography.fontWeightRegular,
     },
+    chipOk: {
+      backgroundColor: '#99FAE2'
+    },
+    chipNOk: {
+        backgroundColor: '#ED9397'
+    },
 }));
 
 export default function ViewPolicyView() {
 
     const classes = useStyles();
-    const API = `${SERVER}/api/private`;
+    const API = `${SERVER}/api/${policy_SVC}${viewpolicy_ENDPOINT}`;
     const [isLoading, setIsLoading] = useState(true)
     const [data, setData] = useState([]);
     const [secondary, setSecondary] = React.useState(false);
@@ -73,10 +81,16 @@ export default function ViewPolicyView() {
                                 aria-controls="panel1a-content"
                                 id="panel1a-header"
                             >
-                                <Typography className={classes.heading}>{mypolicy.policyname}</Typography>
+                                <Typography variant="h6" className={classes.heading}>{mypolicy.policyname}</Typography>
+                                &emsp;
+                                {(mypolicy.status !== 'expired')
+                                    ? <Chip className={classes.chipOk} size="small" label={mypolicy.status.toUpperCase()}/>
+                                    : <Chip className={classes.chipNOk} size="small" label={mypolicy.status.toUpperCase()}/> }
                             </AccordionSummary>
                             <AccordionDetails>
-                                <Typography>Hello</Typography>
+                                <PolicyTable
+                                    data={sortObject(mypolicy)}
+                                />
                             </AccordionDetails>
                         </Accordion>
                     ))}

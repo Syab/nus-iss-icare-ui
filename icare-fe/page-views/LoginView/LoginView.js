@@ -2,10 +2,12 @@ import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { useTheme } from "@material-ui/core/styles";
 import styles from "../../styles/pageViewStyles/LoginViewStyles.module.css"
-import { AppBar, Box, Button, Grid, Paper, Tabs, Tab, Typography} from "@material-ui/core";
+import { AppBar, Box, Button, Grid, Paper, Tabs, Tab, Typography, Link
+} from "@material-ui/core";
 // import LoginForm from "../../components/LoginForm";
 import SwipeableViews from 'react-swipeable-views';
 import {QRCode} from "react-qrcode-logo";
+import { mockpass, singpasslogin, singpasslogo, corppasslogo} from "../../utils/constants";
 
 function TabPanel(props) {
     const { children, value, index, content, ...other } = props;
@@ -51,9 +53,6 @@ export default function LoginView(){
         setValue(index);
     };
 
-    const singpasslogo = "https://app.singpass.gov.sg/static/og_image.png";
-    const corppasslogo = "https://app.singpass.gov.sg/static/corppass_og.png"
-
     return(
         <div className={styles.root}>
             <h1 className={styles.title}>
@@ -88,6 +87,10 @@ export default function LoginView(){
                     </TabPanel>
                     <TabPanel value={value} index={1}>
                         <div className={styles.tabContents}>
+                            <a
+                                target="_blank"
+                                href={singpasslogin}
+                                rel="noopener noreferrer">
                             <QRCode
                                 value="https://www.singpass.gov.sg/spauth/login"
                                 style={{ width: 195, height: 195, padding: 30 }}
@@ -95,6 +98,10 @@ export default function LoginView(){
                                 logoImage={singpasslogo}
                                 size="300"
                             />
+                            </a>
+                            <Button>
+                                <a href={mockpass}>MOCKPASS</a>
+                            </Button>
                         </div>
                     </TabPanel>
                     <TabPanel value={value} index={2}>

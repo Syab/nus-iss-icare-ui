@@ -30,7 +30,7 @@ function ClaimSubmitView({children, props}) {
     let policytypes = []
     let policynames = []
 
-    const API = `${SERVER}/api/private`;
+    const API = `${SERVER}/api/policy/viewpolicy`;
     const [isLoading, setIsLoading] = useState(true)
     const [data, setData] = useState([]);
 

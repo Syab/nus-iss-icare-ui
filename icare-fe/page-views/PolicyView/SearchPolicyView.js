@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import axios from "axios";
 import {SERVER} from "../../config";
+import {policy_SVC, search_ENDPOINT} from "../../utils/constants";
 import styles from '../../styles/Page.module.css';
 import searchPolicyStyles from '../../styles/pageViewStyles/SerchPolicyViewStyles.module.css'
 import {Chip, Card, CardActionArea, CardContent, CardMedia, Typography, makeStyles}
@@ -17,7 +18,7 @@ const useStyles = makeStyles({
 export default function SearchPolicyView({props}) {
 
     const classes = useStyles();
-    const API = `${SERVER}/api/public`;
+    const API = `${SERVER}/api/${policy_SVC}${search_ENDPOINT}`;
     const [isLoading, setIsLoading] = useState(true)
     const [data, setData] = useState([]);
 
@@ -37,7 +38,8 @@ export default function SearchPolicyView({props}) {
                 }
             })
             .catch((err) =>{
-                console.log("some error")
+                console.log(err)
+                console.log("Unable to retrieve Data")
             })
     }
 
@@ -46,7 +48,6 @@ export default function SearchPolicyView({props}) {
     }, [])
 
     const policies = data
-
     return (
         <div>
             <main className={styles.main}>

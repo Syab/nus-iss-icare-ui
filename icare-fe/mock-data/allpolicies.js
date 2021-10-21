@@ -199,12 +199,12 @@ const policycompanies = [
 const mypolicies = [
   {
     "_id":"615184f4c84ad3bad71abded",
-    "policyId":"",
-    "policycompany":"AXA",
     "policytype":"LIFE",
     "policyname":"AXA Life Treasure (II)",
-    "policyno":"AXA20210925",
+    "policyId":"AXA_LTRE_02",
     "userId":"S6099358J",
+    "policycompany":"AXA",
+    "policyno":"AXA20210925",
     "startdate":"2020-01-01",
     "enddate":"2022-12-31",
     "status": "in-force",
@@ -212,11 +212,13 @@ const mypolicies = [
     "advisorname":"JACKIE CHAN",
     "advisormobile":"99876543",
     "email":"JC@AXA.com.sg",
-    "maxclaimable":""
+    "maxclaimable":"200.00",
+    "sumassured":"500,000.00",
+    "username":"MaryAnn Lee"
   },
   {
     "_id":"615184f4c84ad3bad71abded",
-    "policyId":"",
+    "policyId":"MANULIFE_LMC_04",
     "policycompany":"MANULIFE",
     "policytype":"LIFE",
     "policyname":"ReadyMummy",
@@ -229,12 +231,13 @@ const mypolicies = [
     "advisorname":"HARRY POTTER",
     "advisormobile":"99876544",
     "email":"harrypotter@manulife.com.sg",
-    "maxclaimable":"",
-    "sumassured":""
+    "maxclaimable":"1000.00",
+    "sumassured":"10,000.00",
+    "username":"MaryAnn Lee"
   },
   {
     "_id":"615184f4c84ad3bad71abded",
-    "policyId":"",
+    "policyId":"AVIVA_HEALTH_01",
     "policycompany":"AVIVA",
     "policytype":"HEALTH",
     "policyname":"MyShield - Integrated Shield Plan",
@@ -247,13 +250,17 @@ const mypolicies = [
     "advisorname":"SALT BAE",
     "advisormobile":"95678545",
     "email":"saltbae@aviva.com.sg",
-    "maxclaimable":"200.00"
+    "maxclaimable":"200.00",
+    "sumassured":"null",
+    "username":"MaryAnn Lee"
   },
 ]
+
+const result= "{\"_id\":\"6168501bd31ee5671abdddcb\",\"policytype\":\"LIFE\",\"policyname\":\"AXA Life Treasure (II)\",\"policyid\":\"AXA_LI_05\",\"userId\":\"S6099358J\",\"startdate\":\"2020-01-01\",\"enddate\":\"2022-12-31\",\"advisorId\":\"S1872602E\",\"advisorname\":\"JACKIE CHAN\",\"advisormobile\":\"99876543\",\"email\":\"JC@AXA.com.sg\",\"policyno\":\"AXA20210925\",\"status\":\"In force\",\"sumassured\":\"3000.00\",\"policycompany\":\"AXA\",\"maxclaimable\":\"1500.00\"},{\"_id\":\"6168533ad31ee5671abdddce\",\"policytype\":\"LIFE\",\"policyname\":\"MyProtector-Term Plan II\",\"policyid\":\"AVIVA_LI_01\",\"userId\":\"S6099358J\",\"startdate\":\"2021-09-01\",\"enddate\":\"2023-08-31\",\"advisorId\":\"S7572588D\",\"advisorname\":\"GONG YOO\",\"advisormobile\":\"97654321\",\"email\":\"GY@AVIVA.com.sg\",\"policyno\":\"AVIVA20210901\",\"status\":\"In force\",\"sumassured\":\"2000.00\",\"policycompany\":\"AVIVA\",\"maxclaimable\":\"1000.00\"}"
 
 export {
     policies,
     policycompanies,
     policytypes,
-    mypolicies
+    mypolicies,
 }
