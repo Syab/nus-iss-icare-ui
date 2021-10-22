@@ -1,27 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import { SERVER } from "../../config";
-import { getUnique } from "../../utils/handlers";
+import {getUnique, todayYYYYMMDD} from "../../utils/handlers";
 import styles from '../../styles/Page.module.css'
-import claimViewStyles from '../../styles/pageViewStyles/ClaimSubmitViewStyles.module.css'
+import useStyles from "../../utils/mstyles";
 import { makeStyles } from '@material-ui/core/styles';
 import { Paper, Grid, Typography} from "@material-ui/core";
 import ClaimSubmitForm from "../../components/Claim/ClaimSubmitForm";
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
-    },
-    paper: {
-        padding: theme.spacing(2),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-    },
-    subtitle: {
-        margin: theme.spacing(1),
-        padding: theme.spacing(1)
-    },
-}));
+import CustomHeader from "../../components/CustomHeader/CustomHeader";
 
 function ClaimSubmitView({children, props}) {
     const classes = useStyles();
@@ -72,24 +58,20 @@ function ClaimSubmitView({children, props}) {
 
     return (
         <div>
-            <main className={styles.main}>
-                <h2 className={claimViewStyles.title}>
-                    Submit a Claim
-                </h2>
-                <Typography variant='body1' className={claimViewStyles.description}>
-                    Complete the form below and upload your invoice or receipts to process your claims
+            <CustomHeader
+                title="Submit a Claim"
+                subtitle="Complete the form below and upload your invoice or receipts to process your claims"
+            />
+            <Paper className={classes.paper}>
+                <Typography variant='h5' className={classes.subtitle}>
+                    Claim Submission Details
                 </Typography>
-                <Paper className={classes.paper}>
-                    <Typography variant='h5' className={classes.subtitle}>
-                        Claim Submission Details
-                    </Typography>
-                    <ClaimSubmitForm
-                        policyprovider={policyprovider}
-                        policytypes={policytypes}
-                        policynames={policynames}
-                    />
-                </Paper>
-            </main>
+                <ClaimSubmitForm
+                    policyprovider={policyprovider}
+                    policytypes={policytypes}
+                    policynames={policynames}
+                />
+            </Paper>
         </div>
     )
 }

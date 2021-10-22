@@ -3,15 +3,20 @@ import axios from "axios";
 import {tableIcons, claim_SVC, claimlist_ENDPOINT} from "../../utils/constants";
 import MaterialTable from 'material-table';
 import {SERVER} from "../../config";
-import { Typography} from "@material-ui/core";
-import {Button, SearchIcon, UploadIcon, DownloadIcon} from "evergreen-ui"
-import ClaimHistoryTable from "../Claim/ClaimHistoryTable";
+import useStyles from "../../utils/mstyles";
+import ClaimListActions from "./ClaimListActions";
+import { Typography } from "@material-ui/core";
+import {
+    Badge, Button, IconButton, SearchIcon, DownloadIcon, SendMessageIcon
+} from "evergreen-ui";
+
 
 const ClaimListTable = props => {
 
     const API = `${SERVER}/api/${claim_SVC}${claimlist_ENDPOINT}`
     const [isLoading, setIsLoading] = useState(true)
     const [data, setData] = useState([]);
+    const styles = useStyles()
 
     const fetchData = async() => {
         await axios.get( API,
@@ -38,24 +43,16 @@ const ClaimListTable = props => {
     }, [])
 
     const claimlist = data
-    console.log(claimlist)
-    // claimlist.forEach((obj, i) => {
-    //     console.log(obj.policyNumber)
-    //     console.log(obj.claimStatus)
-    //     console.log(typeof(obj.policyId))
-    // })
-
-    const policyid = ['id','1234']
 
     const columns = [
-        {
-            title: 'Claim ID',
-            render : rowData => {
-                return(
-                    <Typography>{rowData.claimId.id}</Typography>
-                )
-            }
-        },
+        // {
+        //     title: 'Claim ID',
+        //     render : rowData => {
+        //         return(
+        //             <Typography>{rowData.claimId.id}</Typography>
+        //         )
+        //     }
+        // },
         {
             title: 'Policy Number',
             field: 'policyNumber'
@@ -67,7 +64,19 @@ const ClaimListTable = props => {
         },
         {
             title: 'Claim Status',
-            field: 'claimStatus'
+            render : rowData => {
+                let bgcolour
+                if (rowData.claimStatus === "PASS"){
+                    bgcolour = 'green'
+                } else if (rowData.claimStatus === "REJECTED"){
+                    bgcolour = 'red'
+                } else {
+                    bgcolour = 'orange'
+                }
+                return(
+                    <Badge color={bgcolour}>{rowData.claimStatus}</Badge>
+                )
+            }
         },
         {
             title: 'Policy ID',
@@ -81,17 +90,16 @@ const ClaimListTable = props => {
             title: 'Actions',
             render : rowData => {
                 return(
-                    <div>
-                        <Button marginY={8} marginRight={12} iconBefore={DownloadIcon}>DOWNLOAD</Button>
-                        <Button marginY={8} marginRight={12} iconBefore={SearchIcon}>VIEW</Button>
-                    </div>
+                    <ClaimListActions
+                        claimStatus={rowData.claimStatus}
+                    />
                 )
             }
         }
     ]
 
     return (
-        <div style={{ maxWidth: '100%' }}>
+        <div>
             <MaterialTable
                 title="List of Submitted Claims"
                 icons={tableIcons}

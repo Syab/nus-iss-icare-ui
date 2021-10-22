@@ -17,6 +17,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Collapse from '@material-ui/core/Collapse';
+import Tooltip from "@material-ui/core/Tooltip";
 import {
     Dashboard, Description, ExpandMore, ExpandLess, NoteAdd, Publish, History,
     Shop, Class
@@ -84,8 +85,6 @@ const useStyles = makeStyles((theme) => ({
     content: {
         flexGrow: 1,
         padding: theme.spacing(3),
-    },
-    nested: {
     },
 }));
 
@@ -162,36 +161,44 @@ export default function Layout(props) {
                 <Divider />
                 <List>
                     <Link href='/dashboard'>
-                        <ListItem button>
-                            <ListItemIcon><Dashboard /></ListItemIcon>
-                            <ListItemText primary="Dashboard" />
-                        </ListItem>
+                        <Tooltip title="Dashboard" placement="right">
+                            <ListItem button>
+                                <ListItemIcon><Dashboard /></ListItemIcon>
+                                <ListItemText primary="Dashboard" />
+                            </ListItem>
+                        </Tooltip>
                     </Link>
                     <Divider />
+                    <Tooltip title="Claim Management" placement="right">
                     <ListItem button onClick={handleCClick}>
-                        <ListItemIcon><Description /></ListItemIcon>
-                        <ListItemText primary="Claims" />
-                        {listCOpen ? <ExpandLess /> : <ExpandMore />}
+                            <ListItemIcon><Description /></ListItemIcon>
+                            <ListItemText primary="Claims" />
+                            {listCOpen ? <ExpandLess /> : <ExpandMore />}
                     </ListItem>
+                    </Tooltip>
                     <Divider />
                     <Collapse in={listCOpen} timeout="auto" unmountOnExit>
                         <List component="div" disablePadding>
                             <Link href='/claimManagement/claimSubmit'>
-                                <ListItem button className={classes.nested}>
+                                <ListItem button>
                                     <ListItemIcon><Publish /></ListItemIcon>
                                     <ListItemText primary="Submit Claim" />
                                 </ListItem>
                             </Link>
-                            <Link href='/claimManagement/claimHistory'>
-                                <ListItem button className={classes.nested}>
-                                    <ListItemIcon><History /></ListItemIcon>
-                                    <ListItemText primary="Claim History" />
-                                </ListItem>
-                            </Link>
+                            <Tooltip title="Claim History" placement="right">
+                                <Link href='/claimManagement/claimHistory'>
+                                    <ListItem button>
+                                        <ListItemIcon><History /></ListItemIcon>
+                                        <ListItemText primary="Claim History" />
+                                    </ListItem>
+                                </Link>
+                            </Tooltip>
                         </List>
                     </Collapse>
                     <ListItem button onClick={handlePClick}>
-                        <ListItemIcon><NoteAdd /></ListItemIcon>
+                        <Tooltip title="Policy Management" placement="right">
+                            <ListItemIcon><NoteAdd /></ListItemIcon>
+                        </Tooltip>
                         <ListItemText primary="Policies" />
                         {listPOpen ? <ExpandLess /> : <ExpandMore />}
                     </ListItem>
@@ -199,13 +206,13 @@ export default function Layout(props) {
                     <Collapse in={listPOpen} timeout="auto" unmountOnExit>
                         <List component="div" disablePadding>
                             <Link href='/policyManagement/viewPolicy'>
-                                <ListItem button className={classes.nested}>
+                                <ListItem button>
                                     <ListItemIcon><Class /></ListItemIcon>
                                     <ListItemText primary="My Policies" />
                                 </ListItem>
                             </Link>
                             <Link href='/policyManagement/searchPolicy'>
-                                <ListItem button className={classes.nested}>
+                                <ListItem button>
                                     <ListItemIcon><Shop/></ListItemIcon>
                                     <ListItemText primary="Shop Policies" />
                                 </ListItem>

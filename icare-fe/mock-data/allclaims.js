@@ -35,7 +35,7 @@ const claimlist = {
             "policyId": {
                 "id": "MANULIFE_LMC_04"
             },
-            "claimStatus": "PENDING",
+            "claimStatus": "REJECTED",
             "rejectReason": {
                 "rejectReason": null
             },
@@ -59,7 +59,7 @@ const claimlist = {
             "policyId": {
                 "id": "710sdfsd"
             },
-            "claimStatus": "PENDING",
+            "claimStatus": "PASS",
             "rejectReason": {
                 "rejectReason": null
             },

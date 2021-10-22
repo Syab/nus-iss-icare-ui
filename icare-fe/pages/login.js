@@ -3,7 +3,6 @@ import Head from "next/head";
 import LoginLayout from "../page-layouts/LoginLayout/LoginLayout";
 import LoginForm from "../components/LoginForm";
 import LoginView from "../page-views/LoginView/LoginView";
-import {Box} from "@material-ui/core";
 
 const LoginPage = props => {
     const LoginViewContent = <LoginView/>
@@ -15,9 +14,6 @@ const LoginPage = props => {
                 <LoginLayout
                     content={LoginViewContent}
                 />
-                <Box>
-                    <login>HELLO FROM LOGIN</login>
-                </Box>
         </Fragment>
     )
 }
