@@ -139,7 +139,6 @@ export default function Layout(props) {
                     <Typography variant="h6" noWrap>
                         <strong>insuranceCare</strong>
                     </Typography>
-                    <Button color="inherit">LOGOUT</Button>
                 </Toolbar>
 
             </AppBar>
