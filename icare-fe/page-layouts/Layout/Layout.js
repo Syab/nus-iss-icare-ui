@@ -28,6 +28,7 @@ const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
     root: {
+        flexGrow: 1,
         display: 'flex',
     },
     appBar: {
@@ -80,12 +81,14 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         justifyContent: 'flex-end',
         padding: theme.spacing(0, 1),
-        // necessary for content to be below app bar
         ...theme.mixins.toolbar,
     },
     content: {
         flexGrow: 1,
         padding: theme.spacing(3),
+    },
+    title: {
+        flexGrow: 1,
     },
 }));
 
@@ -136,9 +139,10 @@ export default function Layout(props) {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" noWrap>
+                    <Typography variant="h6" className={classes.title}>
                         <strong>insuranceCare</strong>
                     </Typography>
+                    <Button color="inherit">Logout</Button>
                 </Toolbar>
 
             </AppBar>
