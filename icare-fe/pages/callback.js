@@ -1,11 +1,12 @@
 import React, {Fragment, useEffect, useState} from "react";
+import styles from '../styles/Page.module.css'
 // import axios from "axios";
 import Image from "next/image";
 import { withRouter, useRouter } from "next/router"
 // import { signIn, useSession } from 'next-NOTAUTH/client'
 import Head from "next/head";
 import LoginLayout from "../page-layouts/LoginLayout/LoginLayout";
-import {Button, CircularProgress} from "@material-ui/core";
+import {Button, CircularProgress, Typography} from "@material-ui/core";
 
 
 const Callback = (props) => {
@@ -27,18 +28,25 @@ const Callback = (props) => {
         )
     }
 
+    useEffect(() => {
+        router.push("/dashboard")
+            .catch((err)=> console.log(err))
+    })
+
     const content = (
-        <div>
-            <CircularProgress/>
+        <div className={styles.main}>
             <Image
                 src="/authenticate.png"
                 width={450}
                 height={450}
             />
-            <p>Hold on while we authenticate you!</p>
-            <Button onClick={handleClick}>hello</Button>
-            <p>{code}</p>
-            <p>{state}</p>
+            <Typography>Hang tight while we authenticate you!</Typography>
+            <br/>
+            <br/>
+            <CircularProgress/>
+            {/*<Button onClick={handleClick}>hello</Button>*/}
+            {/*<p>{code}</p>*/}
+            {/*<p>{state}</p>*/}
         </div>
     )
     return (

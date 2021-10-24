@@ -8,6 +8,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Paper, Grid, Typography} from "@material-ui/core";
 import ClaimSubmitForm from "../../components/Claim/ClaimSubmitForm";
 import CustomHeader from "../../components/CustomHeader/CustomHeader";
+import AlertNotAvailable from "../../components/Common/AlertNotAvailable";
 
 function ClaimSubmitView({children, props}) {
     const classes = useStyles();
@@ -15,12 +16,13 @@ function ClaimSubmitView({children, props}) {
     let policyprovider = []
     let policytypes = []
     let policynames = []
+    let policynumbers = []
 
     const API = `${SERVER}/api/policy/viewpolicy`;
     const [isLoading, setIsLoading] = useState(true)
     const [data, setData] = useState([]);
 
-    const fetchData = async() => {
+    const fetchFieldsData = async() => {
         await axios.get( API,
             {
                 headers:{
@@ -36,12 +38,14 @@ function ClaimSubmitView({children, props}) {
                 }
             })
             .catch((err) =>{
-                console.log("some error")
+                setIsLoading(false);
+                console.log(err.response.data)
+                setData(err.response.data)
             })
     }
 
     useEffect(()=>{
-        fetchData()
+        fetchFieldsData()
     }, [])
 
     const policies = data
@@ -50,18 +54,16 @@ function ClaimSubmitView({children, props}) {
         policyprovider.push(obj.policycompany);
         policytypes.push(obj.policytype);
         policynames.push(obj.policyname);
+        policynumbers.push(obj.policyno);
     })
 
     policyprovider = policyprovider.filter(getUnique);
     policytypes = policytypes.filter(getUnique);
     policynames = policynames.filter(getUnique);
+    policynumbers = policynumbers.filter(getUnique);
 
-    return (
+    const content = ((policies) ?
         <div>
-            <CustomHeader
-                title="Submit a Claim"
-                subtitle="Complete the form below and upload your invoice or receipts to process your claims"
-            />
             <Paper className={classes.paper}>
                 <Typography variant='h5' className={classes.subtitle}>
                     Claim Submission Details
@@ -70,8 +72,20 @@ function ClaimSubmitView({children, props}) {
                     policyprovider={policyprovider}
                     policytypes={policytypes}
                     policynames={policynames}
+                    policynumbers={policynumbers}
                 />
             </Paper>
+        </div> : <AlertNotAvailable/>
+    )
+
+
+    return (
+        <div>
+            <CustomHeader
+                title="Submit a Claim"
+                subtitle="Complete the form below and upload your invoice or receipts to process your claims"
+            />
+            {content}
         </div>
     )
 }

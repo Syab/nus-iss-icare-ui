@@ -1,7 +1,5 @@
 import React from 'react';
 import styles from "../../styles/Page.module.css"
-import ClaimHistoryTable from "../../components/Claim/ClaimHistoryTable";
-import { Grid } from "@material-ui/core";
 import ClaimListTable from "../../components/Claim/ClaimListTable";
 import CustomHeader from "../../components/CustomHeader/CustomHeader";
 import useStyles from "../../utils/mstyles";

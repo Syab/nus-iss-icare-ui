@@ -226,12 +226,12 @@ const mypolicies = [
     "policytype": "PERSONAL ACCIDENT",
     "policyname": "ReadyProtect",
     "policyid": "ML_PA_01",
-    "userId": " S3100052A",
-    "userName": " TAN HENG HUAT",
+    "userId": "S3100052A",
+    "userName": "TAN HENG HUAT",
     "startdate": "2020-11-11",
     "enddate": "2022-11-10",
-    "advisorId": " F1612350K",
-    "advisorname": " TAN JIA MIN",
+    "advisorId": "F1612350K",
+    "advisorname": "TAN JIA MIN",
     "advisormobile": 86682332,
     "email": "jiamin.tan@manualife.com",
     "policyno": "ML53750003",
@@ -245,11 +245,11 @@ const mypolicies = [
     "policyname": "SmartPA Protect+ Personal Accident Insurance",
     "policyid": "AXA_PA_01",
     "userId": " S3100052A",
-    "userName": " TAN HENG HUAT",
+    "userName": "TAN HENG HUAT",
     "startdate": "2020-04-16",
     "enddate": "2022-04-15",
-    "advisorId": " S6005048A",
-    "advisorname": " ANDY LAU",
+    "advisorId": "S6005048A",
+    "advisorname": "ANDY LAU",
     "advisormobile": 98898868,
     "email": "lau.andy@axa-asia.com",
     "policyno": "AXA20220006",
@@ -262,12 +262,12 @@ const mypolicies = [
     "policytype": "LIFE",
     "policyname": "MyProtector Term Plan II",
     "policyid": "AVIVA_LI_01",
-    "userId": " S3100052A",
-    "userName": " TAN HENG HUAT",
+    "userId": "S3100052A",
+    "userName": "TAN HENG HUAT",
     "startdate": "2019-05-16",
     "enddate": "2021-04-15",
-    "advisorId": " S9812380F",
-    "advisorname": " WONG WAI MUN",
+    "advisorId": "S9812380F",
+    "advisorname": "WONG WAI MUN",
     "advisormobile": 98765432,
     "email": "waimun.w@aviva-asia.com",
     "policyno": "AVIVA20211014",
@@ -277,8 +277,6 @@ const mypolicies = [
     "maxclaimable": 2000
   }
 ]
-
-const result= "{\"_id\":\"6168501bd31ee5671abdddcb\",\"policytype\":\"LIFE\",\"policyname\":\"AXA Life Treasure (II)\",\"policyid\":\"AXA_LI_05\",\"userId\":\"S6099358J\",\"startdate\":\"2020-01-01\",\"enddate\":\"2022-12-31\",\"advisorId\":\"S1872602E\",\"advisorname\":\"JACKIE CHAN\",\"advisormobile\":\"99876543\",\"email\":\"JC@AXA.com.sg\",\"policyno\":\"AXA20210925\",\"status\":\"In force\",\"sumassured\":\"3000.00\",\"policycompany\":\"AXA\",\"maxclaimable\":\"1500.00\"},{\"_id\":\"6168533ad31ee5671abdddce\",\"policytype\":\"LIFE\",\"policyname\":\"MyProtector-Term Plan II\",\"policyid\":\"AVIVA_LI_01\",\"userId\":\"S6099358J\",\"startdate\":\"2021-09-01\",\"enddate\":\"2023-08-31\",\"advisorId\":\"S7572588D\",\"advisorname\":\"GONG YOO\",\"advisormobile\":\"97654321\",\"email\":\"GY@AVIVA.com.sg\",\"policyno\":\"AVIVA20210901\",\"status\":\"In force\",\"sumassured\":\"2000.00\",\"policycompany\":\"AVIVA\",\"maxclaimable\":\"1000.00\"}"
 
 export {
     policies,

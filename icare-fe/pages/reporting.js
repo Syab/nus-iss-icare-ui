@@ -1,10 +1,9 @@
 import React from 'react';
 import Layout from "../page-layouts/Layout/Layout";
-import DashboardView from "../page-views/DashboardView/DashboardView";
-import CustomHeader from "../components/CustomHeader/CustomHeader";
+import ReportingView from "../page-views/ReportingView/ReportingView";
 
 const ReportingPage = () => {
-    const ReportingPageContent = <DashboardView/>
+    const ReportingPageContent = <ReportingView/>
     return (
         <div>
             <Layout

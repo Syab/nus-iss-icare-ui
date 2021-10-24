@@ -10,21 +10,15 @@ import {
     Badge, Button, IconButton, SearchIcon, DownloadIcon, SendMessageIcon
 } from "evergreen-ui";
 
-
 const ClaimListTable = props => {
 
     const API = `${SERVER}/api/${claim_SVC}${claimlist_ENDPOINT}`
     const [isLoading, setIsLoading] = useState(true)
     const [data, setData] = useState([]);
-    const styles = useStyles()
+    const styles = useStyles();
 
     const fetchData = async() => {
-        await axios.get( API,
-            {
-                headers:{
-                    contentType: "application/json"
-                }
-            })
+        await axios.get(API)
             .then((result)=>{
                 if (result.status === 200){
                     setIsLoading(false)
@@ -34,7 +28,9 @@ const ClaimListTable = props => {
                 }
             })
             .catch((err) =>{
-                console.log(err)
+                setIsLoading(false);
+                console.log(err.response.data)
+                setData(err.response.data.result)
             })
     }
 
@@ -45,14 +41,6 @@ const ClaimListTable = props => {
     const claimlist = data
 
     const columns = [
-        // {
-        //     title: 'Claim ID',
-        //     render : rowData => {
-        //         return(
-        //             <Typography>{rowData.claimId.id}</Typography>
-        //         )
-        //     }
-        // },
         {
             title: 'Policy Number',
             field: 'policyNumber'
@@ -68,7 +56,7 @@ const ClaimListTable = props => {
                 let bgcolour
                 if (rowData.claimStatus === "PASS"){
                     bgcolour = 'green'
-                } else if (rowData.claimStatus === "REJECTED"){
+                } else if (rowData.claimStatus === "REJECT"){
                     bgcolour = 'red'
                 } else {
                     bgcolour = 'orange'
@@ -79,19 +67,15 @@ const ClaimListTable = props => {
             }
         },
         {
-            title: 'Policy ID',
-            render : rowData => {
-                return(
-                    <Typography>{rowData.policyId.id}</Typography>
-                )
-            }
+            title: 'Submitted',
+            field: 'createTime'
         },
         {
             title: 'Actions',
             render : rowData => {
                 return(
                     <ClaimListActions
-                        claimStatus={rowData.claimStatus}
+                        claimRowData={rowData}
                     />
                 )
             }
@@ -105,6 +89,7 @@ const ClaimListTable = props => {
                 icons={tableIcons}
                 columns={columns}
                 data={claimlist}
+                isLoading={isLoading}
                 detailPanel={rowData => {
                     return (
                         <Typography>

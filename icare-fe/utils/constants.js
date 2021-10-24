@@ -16,22 +16,22 @@ const singpasslogin = "http://ec2-13-213-55-237.ap-southeast-1.compute.amazonaws
 
 // Claim
 const claim_SVC = "claim"
-const claim_URL = dev ? local_URL : "someurl.com"
+const claim_health_URL = "http://icare-claimmgmt-lb-1638130367.ap-southeast-1.elb.amazonaws.com/h"
+const claimlist_URL = "http://icare-claimmgmt-lb-1638130367.ap-southeast-1.elb.amazonaws.com/getclaimlist"
 const claimsubmit_ENDPOINT = "/claimsubmit"
 const claimhistory_ENDPOINT = "/claimhistory"
 const claimlist_ENDPOINT = "/claimlist"
 
 // Policy Management
 const policy_SVC = "policy"
-const policymgmt_URL = dev ? local_URL : "http://icare-policymgmt-alb-692557539.ap-southeast-1.elb.amazonaws.com/private"
+const policymgmt_health_URL = "http://icare-policymgmt-alb-692557539.ap-southeast-1.elb.amazonaws.com/health"
+const policymgmt_URL = "http://icare-policymgmt-alb-692557539.ap-southeast-1.elb.amazonaws.com/private"
 const viewpolicy_ENDPOINT = "/viewpolicy"
 
 // Search
-const search_URL = dev ? local_URL :"http://icare-search-alb-969062267.ap-southeast-1.elb.amazonaws.com/public/LIFE"
+const search_health_URL = "http://icare-search-alb-969062267.ap-southeast-1.elb.amazonaws.com/health";
+const search_URL = "http://icare-search-alb-969062267.ap-southeast-1.elb.amazonaws.com/public";
 const search_ENDPOINT = "/searchpolicy"
-
-// Mockservice
-const policyprovider_URL = dev ? local_URL : "https://demo.icare.policyprovider.4issnus.com/public"
 
 // Login
 const login_URL = dev ? local_URL : "http://ec2-13-213-55-237.ap-southeast-1.compute.amazonaws.com/token?code=33a2bd7b10501209a297f3327512ff44131cf6dc&state=IS1634402696685"
@@ -65,16 +65,18 @@ export {
     mockpass,
     local_URL,
     claim_SVC,
-    claim_URL,
+    claim_health_URL,
+    claimlist_URL,
     claimhistory_ENDPOINT,
     claimsubmit_ENDPOINT,
     claimlist_ENDPOINT,
     policy_SVC,
+    policymgmt_health_URL,
     policymgmt_URL,
     viewpolicy_ENDPOINT,
     search_URL,
+    search_health_URL,
     search_ENDPOINT,
-    policyprovider_URL,
     login_URL,
     node_env,
     tableIcons

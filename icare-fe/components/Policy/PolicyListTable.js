@@ -4,12 +4,11 @@ import MaterialTable from 'material-table';
 import {SERVER} from "../../config";
 import useStyles from "../../utils/mstyles";
 import {policy_SVC, tableIcons, viewpolicy_ENDPOINT} from "../../utils/constants";
-import {
-    Chip, Tooltip, Typography
-} from "@material-ui/core";
-import {
-    Badge, Button, IconButton, SearchIcon
-} from "evergreen-ui";
+import {mypolicies} from "../../mock-data/allpolicies";
+import { Chip, Tooltip, Typography } from "@material-ui/core";
+import { Badge } from "evergreen-ui";
+import PolicyListActions from "./PolicyListActions";
+import AlertNotAvailable from "../Common/AlertNotAvailable";
 
 
 const PolicyListTable = props => {
@@ -17,7 +16,17 @@ const PolicyListTable = props => {
     const API = `${SERVER}/api/${policy_SVC}${viewpolicy_ENDPOINT}`;
     const [isLoading, setIsLoading] = useState(true)
     const [data, setData] = useState([]);
+    const [viewDetails, setViewDetails] = useState(false)
     const styles = useStyles()
+
+    const handleRetState = () => {
+        setViewDetails(false)
+    }
+
+    const handleViewDetails = () => {
+        console.log("view details clicked!")
+        setViewDetails(true)
+    }
 
     const fetchData = async() => {
         await axios.get( API,
@@ -35,7 +44,9 @@ const PolicyListTable = props => {
                 }
             })
             .catch((err) =>{
-                console.log(err)
+                setIsLoading(false);
+                console.log(err.response.data)
+                setData(err.response.data)
             })
     }
 
@@ -44,12 +55,8 @@ const PolicyListTable = props => {
     }, [])
 
     const mypolicies = data
-    console.log(data)
+
     const columns = [
-        {
-            title: 'Policy ID',
-            field: 'policyid'
-        },
         {
             title: 'Policy Number',
             field: 'policyno'
@@ -91,26 +98,31 @@ const PolicyListTable = props => {
             title: 'Actions',
             render : rowData => {
                 return(
-                    <Tooltip title="View"><Button marginRight={6} iconBefore={SearchIcon}>View Details</Button></Tooltip>
+                    <div>
+                        <PolicyListActions
+                            handleResetState={handleRetState}
+                            data={rowData}
+                        />
+                    </div>
                 )
             }
         }
     ]
 
-    return(
+    const content = ((mypolicies) ?
         <div>
             <MaterialTable
                 title="My Policies"
                 icons={tableIcons}
                 columns={columns}
                 data={mypolicies}
-                options={{
-                    fixedColumns: {
-                        left: 2,
-                        right: 0
-                    }
-                }}
+                isLoading={isLoading}
             />
+        </div> : <AlertNotAvailable/>)
+
+    return(
+        <div>
+            {content}
         </div>
     )
 }

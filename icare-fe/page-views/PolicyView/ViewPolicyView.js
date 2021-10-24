@@ -4,6 +4,7 @@ import styles from '../../styles/Page.module.css';
 import PolicyTable from "../../components/Policy/PolicyTable";
 import CustomHeader from "../../components/CustomHeader/CustomHeader";
 import PolicyListTable from "../../components/Policy/PolicyListTable";
+import PHDialog from "../../components/Policy/PolicyListActions";
 
 
 export default function ViewPolicyView() {

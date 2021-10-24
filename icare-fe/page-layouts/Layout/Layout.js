@@ -22,6 +22,7 @@ import {
     Dashboard, Description, ExpandMore, ExpandLess, NoteAdd, Publish, History,
     Shop, Class
 } from '@material-ui/icons';
+import {Button} from "@material-ui/core";
 
 const drawerWidth = 240;
 
@@ -138,7 +139,9 @@ export default function Layout(props) {
                     <Typography variant="h6" noWrap>
                         <strong>insuranceCare</strong>
                     </Typography>
+                    <Button color="inherit">LOGOUT</Button>
                 </Toolbar>
+
             </AppBar>
             <Drawer
                 variant="permanent"

@@ -6,20 +6,20 @@ const claimlist = {
                 "long": 20
             },
             "userId": {
-                "id": "S6099358J"
+                "id": "S3100052A"
             },
             "policyId": {
-                "id": "AVIVA_HEALTH_01"
+                "id": "ML_PA_01"
             },
-            "claimStatus": "PENDING",
+            "claimStatus": "REJECT",
             "rejectReason": {
-                "rejectReason": "ksdfhk"
+                "rejectReason": "Overdue Premiums"
             },
             "claimDocumentId": {
                 "id": "6",
                 "long": 6
             },
-            "policyNumber": "AVI20200325",
+            "policyNumber": "ML53750003",
             "claimAmount": 100,
             "createTime": "2021-10-16",
             "updateTime": "2021-10-16"
@@ -30,12 +30,12 @@ const claimlist = {
                 "long": 21
             },
             "userId": {
-                "id": "S6099358J"
+                "id": "S3100052A"
             },
             "policyId": {
-                "id": "MANULIFE_LMC_04"
+                "id": "AXA_PA_01"
             },
-            "claimStatus": "REJECTED",
+            "claimStatus": "PENDING",
             "rejectReason": {
                 "rejectReason": null
             },
@@ -43,8 +43,8 @@ const claimlist = {
                 "id": "7",
                 "long": 7
             },
-            "policyNumber": "MNL20210102",
-            "claimAmount": 9999,
+            "policyNumber": "AXA20220006",
+            "claimAmount": 500,
             "createTime": "2021-10-17",
             "updateTime": "2021-10-17"
         },
@@ -54,10 +54,10 @@ const claimlist = {
                 "long": 22
             },
             "userId": {
-                "id": "S6099358J"
+                "id": "S3100052A"
             },
             "policyId": {
-                "id": "710sdfsd"
+                "id": "AVIVA_LI_01"
             },
             "claimStatus": "PASS",
             "rejectReason": {
@@ -67,8 +67,8 @@ const claimlist = {
                 "id": "8",
                 "long": 8
             },
-            "policyNumber": "sdfsfd",
-            "claimAmount": 9999,
+            "policyNumber": "AVIVA20211014",
+            "claimAmount": 9540,
             "createTime": "2021-10-09",
             "updateTime": "2021-10-09"
         }
@@ -87,7 +87,7 @@ const claimhistorylist = {
                 "long": 20
             },
             "userId": {
-                "id": "1016sdfdsf"
+                "id": "S3100052A"
             },
             "claimDocumentId": {
                 "id": "6",
@@ -98,8 +98,8 @@ const claimhistorylist = {
             "rejectReason": {
                 "rejectReason": ""
             },
-            "createTime": "2021-10-16",
-            "updateTime": "2021-10-16"
+            "createTime": "2021-10-14",
+            "updateTime": "2021-10-14"
         },
         {
             "claimHistoryId": {
@@ -107,11 +107,11 @@ const claimhistorylist = {
                 "long": 15
             },
             "claimId": {
-                "id": "21",
-                "long": 21
+                "id": "20",
+                "long": 20
             },
             "userId": {
-                "id": "1016sdfdsf"
+                "id": "S3100052A"
             },
             "claimDocumentId": {
                 "id": "6",
@@ -122,20 +122,20 @@ const claimhistorylist = {
             "rejectReason": {
                 "rejectReason": "ksdfhk"
             },
-            "createTime": "2021-10-16",
-            "updateTime": "2021-10-16"
+            "createTime": "2021-10-15",
+            "updateTime": "2021-10-15"
         },
         {
             "claimHistoryId": {
-                "id": "15",
-                "long": 15
+                "id": "16",
+                "long": 16
             },
             "claimId": {
-                "id": "22",
-                "long": 22
+                "id": "20",
+                "long": 20
             },
             "userId": {
-                "id": "1016sdfdsf"
+                "id": "S3100052A"
             },
             "claimDocumentId": {
                 "id": "6",
