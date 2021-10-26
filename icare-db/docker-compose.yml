@@ -1,0 +1,18 @@
+version: "3.8"
+# This is for local only
+services:
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: 'icarelocal'
+      # credentials for root user in container
+      MYSQL_ROOT_USER: 'uroot'
+      MYSQL_ROOT_PASSWORD: 'password'
+      MYSQL_USER: 'mysqluser'
+      MYSQL_PASSWORD: 'mysqlpw'
+
+    ports:
+      - '3306:3306'
+    expose:
+      # Opens port 3306 on the container
+      - '3306'

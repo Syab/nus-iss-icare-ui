@@ -1,0 +1,43 @@
+.root {
+    flex-grow: 1;
+}
+
+.title {
+    margin: 0;
+    line-height: 1.15;
+    font-size: 2rem;
+    padding-bottom: 30px;
+}
+
+.title,
+.description {
+    text-align: center;
+}
+
+.paper {
+    /*padding: 0;*/
+    margin: auto;
+    max-width: 60%;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 93%;
+}
+
+.tabContents{
+    /*position: fixed;*/
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-grow: 1;
+    height: 350px;
+}
+
+/*display: flex;*/
+/*align-items: center;*/
+/*justify-content: center;*/
+/*flex-wrap: wrap;*/
+/*width: 93%;*/
+/*min-width: auto;*/
+/*margin-bottom: 20px;*/
+/*text-align: center;*/

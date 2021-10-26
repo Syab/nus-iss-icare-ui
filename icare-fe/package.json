@@ -3,19 +3,44 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3001",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start -p 80",
+    "lint": "next lint",
+    "cypress": "cypress open",
+    "cypress:headless": "cypress run",
+    "e2e": "start-server-and-test start http://localhost:3000 cypress",
+    "e2e:headless": "start-server-and-test start http://localhost:3000 cypress:headless"
   },
   "dependencies": {
+    "@fontsource/roboto": "^4.5.1",
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
-    "next": "11.1.0",
+    "@material-ui/lab": "^4.0.0-alpha.60",
+    "@material-ui/styles": "^4.11.4",
+    "axios": "^0.23.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "evergreen-ui": "^6.5.1",
+    "form-data": "^4.0.0",
+    "formdata-node": "^4.3.1",
+    "js-cookie": "^3.0.1",
+    "material-table": "^1.69.3",
+    "next": "^11.1.2",
+    "next-auth": "^3.29.0",
+    "next-redux-wrapper": "^7.0.5",
+    "qrcode.react": "^1.0.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-dropzone": "^11.4.2",
+    "react-hook-form": "^7.17.4",
+    "react-qrcode-logo": "^2.5.0",
+    "react-swipeable-views": "^0.14.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "cypress": "^8.6.0",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.0"
   }
