@@ -75,9 +75,58 @@ const useStyles = makeStyles((theme) => ({
             paddingLeft: theme.spacing(3)
         },
         sideSheetBody: {
-            marginTop: theme.spacing(4),
-            paddingLeft: theme.spacing(3)
+            marginTop: theme.spacing(2),
+            paddingLeft: theme.spacing(3),
+            paddingRight: theme.spacing(3),
         },
+        sideSheetBodyContent: {
+            padding:15,
+        },
+        sheetCard: {
+            marginTop: theme.spacing(2),
+            // background: 'EDB019FF',
+        },
+        submitButton:{
+            // background: 'linear-gradient(45deg, #FE6B8B 30%, #EDB019FF 90%)',
+            // background: '#EDB019FF',
+            // border: 0,
+            // borderRadius: 3,
+            // boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+            color: 'white',
+            marginLeft: 10,
+            // "&:hover": {
+            //     color: '#EDB019FF',
+            // }
+            // height: 48,
+            // padding: '0 30px',
+        },
+        loginForm: {
+            minWidth: 400,
+            "&:hover": {
+                color: '#EDB019FF',
+            }
+        },
+        loginButton:{
+            background: '#EDB019FF',
+            border: 0,
+            borderRadius: 3,
+            boxShadow: '0 3px 5px 2px rgba(237, 176, 25, .3)',
+            color : 'white',
+            "&:hover": {
+                color: '#EDB019FF',
+            }
+        },
+        loginGHButton: {
+            // background: 'linear-gradient(45deg, #FE6B8B 30%, #EDB019FF 90%)',
+            background: '#2E465B',
+            border: 0,
+            borderRadius: 3,
+            boxShadow: '0 3px 5px 2px rgba(46, 70, 91, .7)',
+            color: 'white',
+            "&:hover": {
+                color: '#2E465B',
+            }
+        }
     }
 ));
 

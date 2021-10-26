@@ -4,11 +4,11 @@ import MaterialTable from 'material-table';
 import {SERVER} from "../../config";
 import useStyles from "../../utils/mstyles";
 import {policy_SVC, tableIcons, viewpolicy_ENDPOINT} from "../../utils/constants";
-import {mypolicies} from "../../mock-data/allpolicies";
 import { Chip, Tooltip, Typography } from "@material-ui/core";
 import { Badge } from "evergreen-ui";
 import PolicyListActions from "./PolicyListActions";
 import AlertNotAvailable from "../Common/AlertNotAvailable";
+import { mypolicies } from "../../mock-data/allpolicies";
 
 
 const PolicyListTable = props => {
@@ -18,7 +18,7 @@ const PolicyListTable = props => {
     const [data, setData] = useState([]);
     const [viewDetails, setViewDetails] = useState(false)
     const styles = useStyles()
-
+    const localmypolicies = mypolicies
     const handleRetState = () => {
         setViewDetails(false)
     }
@@ -45,8 +45,8 @@ const PolicyListTable = props => {
             })
             .catch((err) =>{
                 setIsLoading(false);
-                console.log(err.response.data)
-                setData(err.response.data)
+                // console.log(err.response.data)
+                setData(localmypolicies)
             })
     }
 
@@ -54,7 +54,7 @@ const PolicyListTable = props => {
         fetchData()
     }, [])
 
-    const mypolicies = data
+    const mypoliciesdata = data
 
     const columns = [
         {
@@ -109,13 +109,13 @@ const PolicyListTable = props => {
         }
     ]
 
-    const content = ((mypolicies) ?
+    const content = ((mypoliciesdata) ?
         <div>
             <MaterialTable
                 title="My Policies"
                 icons={tableIcons}
                 columns={columns}
-                data={mypolicies}
+                data={mypoliciesdata}
                 isLoading={isLoading}
             />
         </div> : <AlertNotAvailable/>)

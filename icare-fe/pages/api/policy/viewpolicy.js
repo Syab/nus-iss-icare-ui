@@ -29,9 +29,9 @@ const handler = async (req, res) => {
                     console.log("Service Not Available, Using Mock Data")
                     res.status(err.response.status).json(mypolicies)
                 } else {
-                    console.log(err)
+                    // console.log(err)
                     console.log("Service Not Available, Using Mock Data")
-                    res.status(err.response.status).json(mypolicies)
+                    res.status(503).json(mypolicies)
                 }
             }
         }
@@ -43,9 +43,9 @@ const handler = async (req, res) => {
             console.log("Service Not Available. Using Mock Data")
             res.status(err.response.status).json(mypolicies)
         } else {
-            console.log(err)
+            // console.log(err)
             console.log("Service Not Available, Using Mock Data")
-            res.status(err.response.status).json(mypolicies)
+            res.status(500).json(mypolicies)
         }
     }
 

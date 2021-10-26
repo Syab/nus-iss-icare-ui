@@ -93,8 +93,8 @@ const claimhistorylist = {
                 "id": "6",
                 "long": 6
             },
-            "claimAmount": 9999,
-            "claimStatus": "PENDING",
+            "claimAmount": 600,
+            "claimStatus": "PASS",
             "rejectReason": {
                 "rejectReason": ""
             },
@@ -118,9 +118,9 @@ const claimhistorylist = {
                 "long": 6
             },
             "claimAmount": 9999,
-            "claimStatus": "PASS",
+            "claimStatus": "REJECT",
             "rejectReason": {
-                "rejectReason": "ksdfhk"
+                "rejectReason": "Overdue Premiums"
             },
             "createTime": "2021-10-15",
             "updateTime": "2021-10-15"
@@ -142,9 +142,9 @@ const claimhistorylist = {
                 "long": 6
             },
             "claimAmount": 9999,
-            "claimStatus": "PASS",
+            "claimStatus": "PENDING",
             "rejectReason": {
-                "rejectReason": "ksdfhk"
+                "rejectReason": ""
             },
             "createTime": "2021-10-16",
             "updateTime": "2021-10-16"

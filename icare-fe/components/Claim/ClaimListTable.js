@@ -9,6 +9,7 @@ import { Typography } from "@material-ui/core";
 import {
     Badge, Button, IconButton, SearchIcon, DownloadIcon, SendMessageIcon
 } from "evergreen-ui";
+import {claimlist} from "../../mock-data/allclaims";
 
 const ClaimListTable = props => {
 
@@ -16,7 +17,7 @@ const ClaimListTable = props => {
     const [isLoading, setIsLoading] = useState(true)
     const [data, setData] = useState([]);
     const styles = useStyles();
-
+    const localclaimlist = claimlist
     const fetchData = async() => {
         await axios.get(API)
             .then((result)=>{
@@ -30,7 +31,7 @@ const ClaimListTable = props => {
             .catch((err) =>{
                 setIsLoading(false);
                 console.log(err.response.data)
-                setData(err.response.data.result)
+                setData(localclaimlist.result)
             })
     }
 
@@ -38,8 +39,7 @@ const ClaimListTable = props => {
         fetchData()
     }, [])
 
-    const claimlist = data
-
+    const claimlistdata = data
     const columns = [
         {
             title: 'Policy Number',
@@ -88,15 +88,8 @@ const ClaimListTable = props => {
                 title="List of Submitted Claims"
                 icons={tableIcons}
                 columns={columns}
-                data={claimlist}
+                data={claimlistdata}
                 isLoading={isLoading}
-                detailPanel={rowData => {
-                    return (
-                        <Typography>
-                            List of claim history for this policy and claim ID
-                        </Typography>
-                    )
-                }}
             />
         </div>
     )

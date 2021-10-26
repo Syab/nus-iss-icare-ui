@@ -22,7 +22,7 @@ const handler = async (req, res) => {
                     res.status(err.response.status).json(policies)
                 } else {
                     console.log(err)
-                    res.status(err.response.status).json(policies)
+                    res.status(500).json(policies)
                 }
             }
         }
@@ -35,7 +35,7 @@ const handler = async (req, res) => {
             res.status(err.response.status).json(policies)
         } else {
             console.log(err)
-            res.status(err.response.status).json(policies)
+            res.status(500).json(policies)
         }
     }
 }

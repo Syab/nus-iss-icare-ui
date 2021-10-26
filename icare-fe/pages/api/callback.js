@@ -2,8 +2,7 @@ import axios from "axios";
 
 const handler = async (req, res) => {
     console.log("entered API")
-    // const API = `
-    // `
+
     // const API = 'http://ec2-54-255-139-176.ap-southeast-1.compute.amazonaws.com/token'
     // const code = req.query.code;
     // const state = req.query.state;

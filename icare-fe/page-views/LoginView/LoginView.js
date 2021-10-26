@@ -1,13 +1,15 @@
 import React, { Fragment } from "react";
+import Link from 'next/link';
 import PropTypes from "prop-types";
 import { useTheme } from "@material-ui/core/styles";
 import styles from "../../styles/pageViewStyles/LoginViewStyles.module.css"
-import { AppBar, Box, Button, Grid, Paper, Tabs, Tab, Typography, Link
+import { AppBar, Box, Button, Grid, Paper, Tabs, Tab, Typography,
 } from "@material-ui/core";
-// import LoginForm from "../../components/LoginForm";
+import LoginForm from "../../components/LoginForm";
 import SwipeableViews from 'react-swipeable-views';
 import {QRCode} from "react-qrcode-logo";
 import { mockpass, singpasslogin, singpasslogo, corppasslogo} from "../../utils/constants";
+import {useRouter} from "next/router";
 
 function TabPanel(props) {
     const { children, value, index, content, ...other } = props;
@@ -43,6 +45,7 @@ function a11yProps(index) {
 }
 
 export default function LoginView(){
+    const router = useRouter();
     const theme = useTheme();
     const [value, setValue] = React.useState(0);
     const handleChange = (event, newValue) => {
@@ -52,6 +55,10 @@ export default function LoginView(){
     const handleChangeIndex = (index) => {
         setValue(index);
     };
+
+    const goReporting = () => {
+        router.push('/reporting')
+    }
 
     return(
         <div className={styles.root}>
@@ -79,18 +86,16 @@ export default function LoginView(){
                 >
                     <TabPanel value={value} index={0}>
                         <Box className={styles.tabContents} p={3}>
-                            {/*<LoginForm/>*/}
-                            <Button>
-                                Login
-                            </Button>
+                            <LoginForm/>
                         </Box>
                     </TabPanel>
                     <TabPanel value={value} index={1}>
                         <div className={styles.tabContents}>
                             <a
-                                target="_blank"
-                                href={singpasslogin}
-                                rel="noopener noreferrer">
+                                // target="_blank"
+                                href={mockpass}
+                                // rel="noopener noreferrer"
+                            >
                             <QRCode
                                 value="https://www.singpass.gov.sg/spauth/login"
                                 style={{ width: 195, height: 195, padding: 30 }}
@@ -99,20 +104,26 @@ export default function LoginView(){
                                 size="300"
                             />
                             </a>
-                            <Button>
-                                <a href={mockpass}>MOCKPASS</a>
-                            </Button>
                         </div>
                     </TabPanel>
                     <TabPanel value={value} index={2}>
                         <div className={styles.tabContents}>
-                            <QRCode
-                                value="https://www.corppass.gov.sg/cpauth/login/"
-                                style={{ width: 195, height: 195, padding: 30 }}
-                                // enableCORS={true}
-                                logoImage={corppasslogo}
-                                size="300"
-                            />
+                            <a
+                                // target="_blank"
+                                href={mockpass}
+                                // rel="noopener noreferrer"
+                            >
+                                <QRCode
+                                    value="https://www.corppass.gov.sg/cpauth/login/"
+                                    style={{ width: 195, height: 195, padding: 30 }}
+                                    // enableCORS={true}
+                                    logoImage={corppasslogo}
+                                    size="300"
+                                />
+                            </a>
+                            <Button onClick={goReporting}>
+                                REPORTING
+                            </Button>
                         </div>
                     </TabPanel>
                 </SwipeableViews>

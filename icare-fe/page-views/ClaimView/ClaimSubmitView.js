@@ -9,14 +9,16 @@ import { Paper, Grid, Typography} from "@material-ui/core";
 import ClaimSubmitForm from "../../components/Claim/ClaimSubmitForm";
 import CustomHeader from "../../components/CustomHeader/CustomHeader";
 import AlertNotAvailable from "../../components/Common/AlertNotAvailable";
+import SubmitForm from "../../components/Claim/SubmitForm";
 
 function ClaimSubmitView({children, props}) {
     const classes = useStyles();
 
-    let policyprovider = []
+    let policyproviders = []
     let policytypes = []
     let policynames = []
     let policynumbers = []
+    let policyids = []
 
     const API = `${SERVER}/api/policy/viewpolicy`;
     const [isLoading, setIsLoading] = useState(true)
@@ -39,7 +41,7 @@ function ClaimSubmitView({children, props}) {
             })
             .catch((err) =>{
                 setIsLoading(false);
-                console.log(err.response.data)
+                // console.log(err.response.data)
                 setData(err.response.data)
             })
     }
@@ -51,16 +53,18 @@ function ClaimSubmitView({children, props}) {
     const policies = data
 
     policies.forEach((obj, i) =>{
-        policyprovider.push(obj.policycompany);
+        policyproviders.push(obj.policycompany);
         policytypes.push(obj.policytype);
         policynames.push(obj.policyname);
         policynumbers.push(obj.policyno);
+        policyids.push(obj.policyid)
     })
 
-    policyprovider = policyprovider.filter(getUnique);
+    policyproviders = policyproviders.filter(getUnique);
     policytypes = policytypes.filter(getUnique);
     policynames = policynames.filter(getUnique);
     policynumbers = policynumbers.filter(getUnique);
+    policyids = policyids.filter(getUnique);
 
     const content = ((policies) ?
         <div>
@@ -68,12 +72,19 @@ function ClaimSubmitView({children, props}) {
                 <Typography variant='h5' className={classes.subtitle}>
                     Claim Submission Details
                 </Typography>
-                <ClaimSubmitForm
-                    policyprovider={policyprovider}
+                <SubmitForm
+                    policyproviders={policyproviders}
                     policytypes={policytypes}
                     policynames={policynames}
                     policynumbers={policynumbers}
+                    policyids={policyids}
                 />
+                {/*<ClaimSubmitForm*/}
+                {/*    policyprovider={policyprovider}*/}
+                {/*    policytypes={policytypes}*/}
+                {/*    policynames={policynames}*/}
+                {/*    policynumbers={policynumbers}*/}
+                {/*/>*/}
             </Paper>
         </div> : <AlertNotAvailable/>
     )

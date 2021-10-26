@@ -37,16 +37,13 @@ export default function PolicyListActions(props) {
                 <DialogContent dividers>
                     <DialogContentText id="alert-dialog-description">
                         <Typography gutterBottom>
-                            {data.policyno} | {data.policyname}
+                            {data.policycompany} | {data.policyname}
                         </Typography>
                         <Typography gutterBottom>
-                            Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
-                            lacus vel augue laoreet rutrum faucibus dolor auctor.
+                            Policy Number : {data.policyno}
                         </Typography>
                         <Typography gutterBottom>
-                            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel
-                            scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus
-                            auctor fringilla.
+                            Status : {data.status}
                         </Typography>
                         {/*{data.policycompany}*/}
                     </DialogContentText>

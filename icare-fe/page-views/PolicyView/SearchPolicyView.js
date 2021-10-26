@@ -7,12 +7,12 @@ import styles from '../../styles/Page.module.css';
 import useStyles from "../../utils/mstyles";
 import searchPolicyStyles from '../../styles/pageViewStyles/SerchPolicyViewStyles.module.css';
 import CustomHeader from "../../components/CustomHeader/CustomHeader";
-import {Alert} from "evergreen-ui";
 import {
     Chip, Card, CardActionArea, CardContent,
     CardMedia, Grid, Typography
 }
     from "@material-ui/core";
+import AlertNotAvailable from "../../components/Common/AlertNotAvailable";
 
 
 export default function SearchPolicyView({props}) {
@@ -94,12 +94,7 @@ export default function SearchPolicyView({props}) {
             ))}
         </Grid>
         </div> : <main className={styles.main}>
-                    <Alert intent="danger"
-                           title="We're looking into it right now!"
-                    >
-                        Looks like something's happened behind the scenes. We promise we're working on it.
-                        Please come back again in a couple of minutes.
-                    </Alert>
+                    <AlertNotAvailable/>
                  </main>)
     return (
         <div>

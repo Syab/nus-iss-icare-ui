@@ -1,20 +1,19 @@
 import React from 'react';
-import Layout from "../page-layouts/Layout/Layout";
-import ReportingView from "../page-views/ReportingView/ReportingView";
+// import styles from '../../styles/Page.module.css'
+import Layout from "../../page-layouts/Layout/Layout";
+import ClaimListView from "../../page-views/ClaimView/ClaimListView";
 import {getSession} from "next-auth/client";
 
-const ReportingPage = () => {
-    const ReportingPageContent = <ReportingView/>
+export default function ClaimListPage() {
+    const claimListContent = <ClaimListView/>
     return (
         <div>
             <Layout
-                content= { ReportingPageContent }
+                content={claimListContent}
             />
         </div>
     )
 }
-
-export default ReportingPage;
 
 export async function getServerSideProps (context) {
     const session = await getSession(context);

@@ -1,5 +1,5 @@
 import axios from "axios";
-import {claimlist_URL, claim_health_URL, policymgmt_health_URL} from "../../../utils/constants";
+import {claimlist_URL, claim_health_URL} from "../../../utils/constants";
 import { claimlist } from '../../../mock-data/allclaims';
 const FormData = require('form-data');
 
@@ -37,9 +37,9 @@ const handler = async (req, res) => {
             console.log("Service Not Available. Using Mock Data")
             res.status(err.response.status).json(claimlist)
         } else {
-            console.log(err)
+            // console.log(err)
             console.log("Service Not Available, Using Mock Data")
-            res.status(err.response.status).json(claimlist)
+            res.status(500).json(claimlist)
         }
     }
 }

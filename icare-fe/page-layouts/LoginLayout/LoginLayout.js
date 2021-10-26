@@ -1,16 +1,23 @@
 import React, {Fragment} from "react";
 import styles from '../../styles/pageLayoutStyles/LoginLayoutStyles.module.css';
-import BGImage from "../../components/Common/BGImage";
-import { AppBar, Toolbar, Typography, Paper } from '@material-ui/core';
+import {AppBar, Toolbar, Typography, Paper, ThemeProvider} from '@material-ui/core';
+import {createTheme} from "@material-ui/core/styles";
 
 export default function LoginLayout(props,children) {
     const {content} = props
+    const theme = createTheme({
+        palette: {
+            primary: {
+                main: '#edb019'
+            },
+            secondary: {
+                main: '#2E465B'
+            },
+        },
+    });
     return (
         <Fragment>
-            {/*<div className={styles.root}>*/}
-            {/*    <h1>Homepage</h1>*/}
-            {/*    <BGImage/>*/}
-            {/*</div>*/}
+            <ThemeProvider theme={theme}>
             <AppBar position="static" >
                 <Toolbar className={styles.appBar}>
                     <Typography variant="h6" className={styles.title}>
@@ -21,6 +28,7 @@ export default function LoginLayout(props,children) {
             <div className={styles.root}>
                 {content}
             </div>
+            </ThemeProvider>
         </Fragment>
     );
 }

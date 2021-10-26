@@ -4,7 +4,7 @@ import ClaimListTable from "../../components/Claim/ClaimListTable";
 import CustomHeader from "../../components/CustomHeader/CustomHeader";
 import useStyles from "../../utils/mstyles";
 
-export default function ClaimHistoryView() {
+export default function ClaimListView() {
     const styles = useStyles()
     return (
         <div>

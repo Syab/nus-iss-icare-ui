@@ -3,7 +3,7 @@ import Link from 'next/link';
 import useStyles from "../../utils/mstyles";
 import {
     Box, Card, CardActionArea, CardContent,
-    Grid, Typography, Paper
+    Grid, Typography, Paper, List, ListItem
 } from '@material-ui/core'
 import styles from "../../styles/Page.module.css";
 import CustomHeader from "../../components/CustomHeader/CustomHeader";
@@ -19,13 +19,13 @@ function DashboardView() {
     const styles = useStyles()
     return (
         <div>
-            <Box>
-                <CustomHeader
-                    title="Dashboard"
-                    subtitle={"Welcome " + username}
-                    description={"Here's a summary for today : " + todayYYYYMMDD('-')}
-                />
-                <Grid container spacing={3} className={styles.gridContainer}>
+            <CustomHeader
+                title="Dashboard"
+                subtitle={"Welcome " + username}
+                description={"Here's a summary for today : " + todayYYYYMMDD('-')}
+            />
+            <div style={{marginTop: '2em' }}>
+                <Grid container spacing={2} className={styles.gridContainer}>
                     <Grid item md={6}>
                         <ClaimListTable/>
                     </Grid>
@@ -33,7 +33,7 @@ function DashboardView() {
                         <PolicyListTable/>
                     </Grid>
                 </Grid>
-            </Box>
+            </div>
         </div>
     )
 }

@@ -9,7 +9,7 @@ import {
 const node_env = process.env.NODE_ENV
 const dev = node_env !== 'production';
 
-const local_URL = "http://localhost:3000";
+const local_URL = "http://localhost:3001";
 const singpasslogo = "https://app.singpass.gov.sg/static/og_image.png";
 const corppasslogo = "https://app.singpass.gov.sg/static/corppass_og.png";
 const singpasslogin = "http://ec2-13-213-55-237.ap-southeast-1.compute.amazonaws.com/login/singpass";
@@ -17,10 +17,13 @@ const singpasslogin = "http://ec2-13-213-55-237.ap-southeast-1.compute.amazonaws
 // Claim
 const claim_SVC = "claim"
 const claim_health_URL = "http://icare-claimmgmt-lb-1638130367.ap-southeast-1.elb.amazonaws.com/h"
-const claimlist_URL = "http://icare-claimmgmt-lb-1638130367.ap-southeast-1.elb.amazonaws.com/getclaimlist"
 const claimsubmit_ENDPOINT = "/claimsubmit"
 const claimhistory_ENDPOINT = "/claimhistory"
 const claimlist_ENDPOINT = "/claimlist"
+const claimlist_URL = "http://icare-claimmgmt-lb-1638130367.ap-southeast-1.elb.amazonaws.com/getclaimlist"
+const claimhistory_URL = "http://icare-claimmgmt-lb-1638130367.ap-southeast-1.elb.amazonaws.com/getclaimhistorylist"
+const claimsubmit_URL = "http://icare-claimmgmt-lb-1638130367.ap-southeast-1.elb.amazonaws.com/submitclaim"
+
 
 // Policy Management
 const policy_SVC = "policy"
@@ -34,8 +37,7 @@ const search_URL = "http://icare-search-alb-969062267.ap-southeast-1.elb.amazona
 const search_ENDPOINT = "/searchpolicy"
 
 // Login
-const login_URL = dev ? local_URL : "http://ec2-13-213-55-237.ap-southeast-1.compute.amazonaws.com/token?code=33a2bd7b10501209a297f3327512ff44131cf6dc&state=IS1634402696685"
-const mockpass = "https://test.api.myinfo.gov.sg/serviceauth/myinfo-com/v1/authorise?client_id=STG2-MYINFO-SELF-TEST&purpose=Fast%20Access%20to%20iCare&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fcallback&response_type=code&scope=email%20name%20regadd%20mobileno%20uinfin%20dob%20sex%20nationality%20birthcountry&state=IS1632884881738"
+const mockpass = "http://localhost:8081/login/singpass"
 
 const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -67,6 +69,8 @@ export {
     claim_SVC,
     claim_health_URL,
     claimlist_URL,
+    claimhistory_URL,
+    claimsubmit_URL,
     claimhistory_ENDPOINT,
     claimsubmit_ENDPOINT,
     claimlist_ENDPOINT,
@@ -77,7 +81,6 @@ export {
     search_URL,
     search_health_URL,
     search_ENDPOINT,
-    login_URL,
     node_env,
     tableIcons
 }

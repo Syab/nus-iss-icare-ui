@@ -3,7 +3,6 @@ import styles from '../styles/Page.module.css'
 // import axios from "axios";
 import Image from "next/image";
 import { withRouter, useRouter } from "next/router"
-// import { signIn, useSession } from 'next-NOTAUTH/client'
 import Head from "next/head";
 import LoginLayout from "../page-layouts/LoginLayout/LoginLayout";
 import {Button, CircularProgress, Typography} from "@material-ui/core";
@@ -13,20 +12,7 @@ const Callback = (props) => {
 
     const router = useRouter();
     const { code, state }  = props
-    const [isLoginStarted, setIsLoginStarted] = useState(false)
-    const [loginError, setLoginError] = useState('')
 
-    const handleClick = () => {
-        console.log("trying to sign in")
-        setIsLoginStarted(true)
-        signIn('Credentials',
-            {
-                code,
-                state,
-                callbackUrl: `${window.location.origin}/dashboard`
-            }
-        )
-    }
 
     useEffect(() => {
         router.push("/dashboard")
