@@ -79,12 +79,6 @@ function ClaimSubmitView({children, props}) {
                     policynumbers={policynumbers}
                     policyids={policyids}
                 />
-                {/*<ClaimSubmitForm*/}
-                {/*    policyprovider={policyprovider}*/}
-                {/*    policytypes={policytypes}*/}
-                {/*    policynames={policynames}*/}
-                {/*    policynumbers={policynumbers}*/}
-                {/*/>*/}
             </Paper>
         </div> : <AlertNotAvailable/>
     )
