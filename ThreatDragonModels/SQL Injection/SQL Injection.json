@@ -1,0 +1,28 @@
+{
+  "summary": {
+    "title": "SQL Injection",
+    "owner": "syab",
+    "description": "Threat model of SQL inject from client to backend database"
+  },
+  "detail": {
+    "contributors": [
+      {
+        "name": "zhang xin"
+      },
+      {
+        "name": "xiaohan"
+      },
+      {
+        "name": "jinwei"
+      }
+    ],
+    "diagrams": [
+      {
+        "title": "Threat Model - SQL Injection",
+        "thumbnail": "./public/content/images/thumbnail.jpg",
+        "id": 0
+      }
+    ],
+    "reviewer": "zhang xin, xiaohan, jinwei"
+  }
+}
