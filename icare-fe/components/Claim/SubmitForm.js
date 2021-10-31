@@ -90,9 +90,6 @@ const SubmitForm = (props) => {
 
     return(
         <div>
-            {/*<Button variant="outlined" onClick={handleClick}>*/}
-            {/*    Open success snackbar*/}
-            {/*</Button>*/}
             <Snackbar open={open} autoHideDuration={8000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity={severity}>
                     {message}
@@ -103,6 +100,7 @@ const SubmitForm = (props) => {
                     <List>
                         <ListItem>
                             <TextField
+                                required
                                 select
                                 variant="outlined"
                                 fullWidth
@@ -120,6 +118,7 @@ const SubmitForm = (props) => {
                         </ListItem>
                         <ListItem>
                             <TextField
+                                required
                                 select
                                 variant="outlined"
                                 fullWidth
@@ -137,6 +136,7 @@ const SubmitForm = (props) => {
                         </ListItem>
                         <ListItem>
                             <TextField
+                                required
                                 select
                                 variant="outlined"
                                 fullWidth
@@ -154,6 +154,7 @@ const SubmitForm = (props) => {
                         </ListItem>
                         <ListItem>
                             <TextField
+                                required
                                 select
                                 variant="outlined"
                                 fullWidth
@@ -171,6 +172,7 @@ const SubmitForm = (props) => {
                         </ListItem>
                         <ListItem>
                             <TextField
+                                required
                                 select
                                 variant="outlined"
                                 fullWidth
@@ -188,6 +190,7 @@ const SubmitForm = (props) => {
                         </ListItem>
                         <ListItem>
                             <TextField
+                                required
                                 variant="outlined"
                                 fullWidth
                                 id="amount"

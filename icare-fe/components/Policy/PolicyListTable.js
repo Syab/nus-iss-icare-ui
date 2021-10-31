@@ -58,7 +58,7 @@ const PolicyListTable = props => {
 
     const columns = [
         {
-            title: 'Policy Number',
+            title: 'Policy No.',
             field: 'policyno'
         },
         {
@@ -70,7 +70,7 @@ const PolicyListTable = props => {
             field: 'enddate'
         },
         {
-            title: 'Policy Status',
+            title: 'Status',
             field: 'status',
             render: rowData => {
                 let bgcolour
@@ -89,10 +89,6 @@ const PolicyListTable = props => {
             title: 'Sum Assured',
             field: 'sumassured',
             type: 'currency'
-        },
-        {
-            title: 'Advisor',
-            field: 'advisorname'
         },
         {
             title: 'Actions',

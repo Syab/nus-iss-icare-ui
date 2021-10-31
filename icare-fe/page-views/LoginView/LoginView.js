@@ -93,7 +93,7 @@ export default function LoginView(){
                         <div className={styles.tabContents}>
                             <a
                                 // target="_blank"
-                                href={mockpass}
+                                href="http://ec2-54-179-181-4.ap-southeast-1.compute.amazonaws.com/login/singpass"
                                 // rel="noopener noreferrer"
                             >
                             <QRCode

@@ -238,7 +238,7 @@ const mypolicies = [
     "status": "In force",
     "sumassured": 2500,
     "policycompany": "MANUALIFE",
-    "maxclaimable": 2000
+    "maxclaimable": 20000
   },
   {
     "policytype": "PERSONAL ACCIDENT",
