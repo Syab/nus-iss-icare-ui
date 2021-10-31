@@ -1,3 +1,4 @@
+name: CI - Code Quality Scan
 on:
   push:
     branches:
@@ -5,7 +6,6 @@ on:
       - 'release/**'
 #  pull_request:
 #    types: [opened, synchronize, reopened]
-name:  Workflow
 jobs:
   sonarcloud:
     runs-on: ubuntu-latest
