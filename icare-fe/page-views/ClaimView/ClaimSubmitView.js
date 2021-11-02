@@ -2,14 +2,12 @@ import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import { SERVER } from "../../config";
 import {getUnique, todayYYYYMMDD} from "../../utils/handlers";
-import styles from '../../styles/Page.module.css'
 import useStyles from "../../utils/mstyles";
-import { makeStyles } from '@material-ui/core/styles';
 import { Paper, Grid, Typography} from "@material-ui/core";
-import ClaimSubmitForm from "../../components/Claim/ClaimSubmitForm";
 import CustomHeader from "../../components/CustomHeader/CustomHeader";
 import AlertNotAvailable from "../../components/Common/AlertNotAvailable";
 import SubmitForm from "../../components/Claim/SubmitForm";
+import ReactHookForm from "../../components/Claim/ReactHookForm";
 
 function ClaimSubmitView({children, props}) {
     const classes = useStyles();
@@ -72,7 +70,7 @@ function ClaimSubmitView({children, props}) {
                 <Typography variant='h5' className={classes.subtitle}>
                     Claim Submission Details
                 </Typography>
-                <SubmitForm
+                <ReactHookForm
                     policyproviders={policyproviders}
                     policytypes={policytypes}
                     policynames={policynames}

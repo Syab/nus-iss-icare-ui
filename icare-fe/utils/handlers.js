@@ -1,3 +1,5 @@
+import * as Yup from 'yup';
+
 function getUnique(value, index, self){
     return self.indexOf(value) === index;
 }
@@ -27,9 +29,10 @@ function transposeObject(ogObject){
 }
 
 
+
 export {
     getUnique,
     todayYYYYMMDD,
     sortObject,
-    transposeObject
+    transposeObject,
 }

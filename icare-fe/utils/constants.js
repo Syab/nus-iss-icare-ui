@@ -37,7 +37,7 @@ const search_URL = "http://icare-search-alb-969062267.ap-southeast-1.elb.amazona
 const search_ENDPOINT = "/searchpolicy"
 
 // Login
-const mockpass = "http://localhost:8081/login/singpass"
+const mockpass = "http://ec2-3-1-83-178.ap-southeast-1.compute.amazonaws.com/login/singpass"
 
 const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -59,6 +59,11 @@ const tableIcons = {
     ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
 };
 
+// regex
+const specChar = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+const onlyAlpha = /[A-Za-z]/;
+const onlyAlphaNumeric = /[0-9A-Za-z ]/;
+const onlyDigits = /^\d+(\.\d{1,2})?$/;
 
 export {
     singpasslogo,
@@ -82,5 +87,8 @@ export {
     search_health_URL,
     search_ENDPOINT,
     node_env,
-    tableIcons
+    tableIcons,
+    onlyAlpha,
+    onlyDigits,
+    onlyAlphaNumeric
 }

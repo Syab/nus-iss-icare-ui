@@ -4,12 +4,14 @@ import { claim_SVC, claimsubmit_ENDPOINT } from "../../utils/constants";
 import {SERVER} from "../../config";
 import styles from '../../styles/Page.module.css'
 import useStyles from "../../utils/mstyles";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as Yup from 'yup';
 import {
     Snackbar,
     TextField,
     FormControl,
-    Button, List, ListItem, MenuItem
+    Button, List, ListItem, MenuItem, Typography
 } from "@material-ui/core";
 import MuiAlert from '@material-ui/lab/Alert';
 
@@ -19,10 +21,27 @@ function Alert(props) {
 
 const SubmitForm = (props) => {
 
+    const validationSchema = Yup.object()
+                                .shape({
+                                    amount : Yup.number()
+                                        .required('Minimum amount should be more than 0')
+                                        .min(10,'Minimum amount is $10')
+                                        .max(10000, 'Maximum amount is $10000'),
+                                    policyprovider : Yup.string()
+                                        .required('This field is required.')
+                                        .matches(/^A-Za-z0-9/,'Should only contain alphabets and numbers'),
+                                    policyid : Yup.string()
+                                        .required('This field is required.')
+                                        .matches(/^A-Za-z0-9/,'Should only contain alphabets and numbers')
+                                })
+
     const { policytypes, policyproviders, policynames, policynumbers, policyids, ...rest } = props;
     const submitAPI = `${SERVER}/api/${claim_SVC}${claimsubmit_ENDPOINT}`;
+    const {
+        control, register, handleSubmit, reset, formState: {errors}
+        } = useForm({resolver: yupResolver(validationSchema)});
     const [open, setOpen] = useState(false)
-    const [severity, setSeverity] = useState('')
+    const [severity, setSeverity] = useState('warning')
     const [message, setMessage] = useState('')
     const [values, setValues] = useState({
         policyprovider : '',
@@ -59,7 +78,7 @@ const SubmitForm = (props) => {
 
     const handleSubmitClaim = async (e) => {
         e.preventDefault();
-        // console.log(values);
+        console.log(values);
         const response = await fetch(`/api/${claim_SVC}${claimsubmit_ENDPOINT}`,
             {
                 method: 'POST',
@@ -76,13 +95,17 @@ const SubmitForm = (props) => {
             setSeverity('success')
             setMessage('Your claim has been successfully submited!')
             handleResetState();
+            reset();
         } else {
             setOpen(true);
             setSeverity('error');
             setMessage('Something went wrong please try again!')
             handleResetState();
+            reset();
         }
     }
+
+    const onSubmit = data => console.log(data);
 
     useEffect(()=>{
        handleResetState()
@@ -95,7 +118,7 @@ const SubmitForm = (props) => {
                     {message}
                 </Alert>
             </Snackbar>
-            <form>
+            <form onSubmit={handleSubmitClaim}>
                 <FormControl fullWidth>
                     <List>
                         <ListItem>
@@ -202,18 +225,30 @@ const SubmitForm = (props) => {
                         <ListItem>
                             <Button
                                 variant="contained" color="secondary"
-                                onClick={handleResetState}
+                                onClick={() => {
+                                    handleResetState()
+                                    reset()
+                                }}
                                 fullWidth
                             >
                                 CLEAR
                             </Button>
                             <Button
+                                type="submit"
                                 variant="contained" color="primary"
                                 onClick={handleSubmitClaim}
                                 className={classes.submitButton}
                                 fullWidth
                             >
                                 SUBMIT CLAIM
+                            </Button>
+                            <Button
+                                type="submit"
+                                variant="contained" color="primary"
+                                className={classes.submitButton}
+                                fullWidth
+                            >
+                                TEST VALIDATION
                             </Button>
                         </ListItem>
                     </List>
