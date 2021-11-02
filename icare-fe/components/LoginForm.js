@@ -10,6 +10,7 @@ import SecurityIcon from '@material-ui/icons/Security';
 import LockIcon from '@material-ui/icons/Lock';
 import useStyles from "../utils/mstyles";
 import { signIn, useSession} from 'next-auth/client';
+import {SERVER} from "../config";
 
 
 export default function LoginForm(){
@@ -26,7 +27,7 @@ export default function LoginForm(){
             'credentials', {
                 username,
                 password,
-                callbackUrl: `${window.location.origin}/dashboard`
+                callbackUrl: `${SERVER}/dashboard`
             }
         )
     }

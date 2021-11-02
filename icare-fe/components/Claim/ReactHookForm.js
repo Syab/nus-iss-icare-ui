@@ -51,16 +51,16 @@ const ReactHookForm = (props) => {
             temp.policytype = onlyAlpha.test(fieldValues.policytype) ? "" : "This field only allows alphabets."
         }
         if ('policyname' in fieldValues) {
-            temp.policyname = fieldValues.policyname ? "" : "This field is required."
+            // temp.policyname = fieldValues.policyname ? "" : "This field is required."
             temp.policyname = onlyAlpha.test(fieldValues.policyname) ? "" : "This field only allows alphabets, numbers, space and '_' "
         }
         if ('policynumber' in fieldValues) {
             temp.policynumber = fieldValues.policynumber ? "" : "This field is required."
-            temp.policynumber = onlyAlpha.test(fieldValues.policynumber) ? "" : "Must have 2 digits behind a decimal point."
+            temp.policynumber = onlyAlpha.test(fieldValues.policynumber) ? "" : "This field only allows alphabets and numbers"
         }
         if ('policyid' in fieldValues) {
-            temp.policyid = fieldValues.policyid ? "" : "This field is required."
-            temp.policyid = onlyAlpha.test(fieldValues.policyid) ? "" : "Must have 2 digits behind a decimal point."
+            // temp.policyid = fieldValues.policyid ? "" : "This field is required."
+            temp.policyid = onlyAlpha.test(fieldValues.policyid) ? "" : "This field only allows alphabets, numbers, space and '_' "
         }
 
         setErrors({
