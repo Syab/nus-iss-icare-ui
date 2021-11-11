@@ -37,7 +37,7 @@ const search_URL = "http://icare-search-alb-969062267.ap-southeast-1.elb.amazona
 const search_ENDPOINT = "/searchpolicy"
 
 // Login
-const mockpass = "http://ec2-3-1-83-178.ap-southeast-1.compute.amazonaws.com/login/singpass"
+const mockpass = "http://ec2-13-213-78-10.ap-southeast-1.compute.amazonaws.com/login/singpass"
 
 const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),

@@ -52,15 +52,13 @@ const ReactHookForm = (props) => {
         }
         if ('policyname' in fieldValues) {
             // temp.policyname = fieldValues.policyname ? "" : "This field is required."
-            temp.policyname = onlyAlpha.test(fieldValues.policyname) ? "" : "This field only allows alphabets, numbers, space and '_' "
+            temp.policyname = onlyAlpha.test(fieldValues.policyname) ? "" : "This field only allows alphabets, numbers, space and the following special characters '_ + - . ,' "
         }
         if ('policynumber' in fieldValues) {
-            temp.policynumber = fieldValues.policynumber ? "" : "This field is required."
-            temp.policynumber = onlyAlpha.test(fieldValues.policynumber) ? "" : "This field only allows alphabets and numbers"
+            temp.policynumber = (fieldValues.policynumber && onlyAlpha.test(fieldValues.policynumber)) ? "" : "This field is required and only allows alphabets and numbers.."
         }
         if ('policyid' in fieldValues) {
-            // temp.policyid = fieldValues.policyid ? "" : "This field is required."
-            temp.policyid = onlyAlpha.test(fieldValues.policyid) ? "" : "This field only allows alphabets, numbers, space and '_' "
+            temp.policyid = (fieldValues.policyid && onlyAlpha.test(fieldValues.policyid)) ? "" : "This field is required and only allows alphabets, numbers, space and '_'."
         }
 
         setErrors({
@@ -90,7 +88,7 @@ const ReactHookForm = (props) => {
         e.preventDefault()
         console.log('clicked submit')
         if (validate()){
-            // console.log(values)
+            console.log(values)
             const response = await fetch(`/api/${claim_SVC}${claimsubmit_ENDPOINT}`,
                 {
                     method: 'POST',

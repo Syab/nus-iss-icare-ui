@@ -15,6 +15,7 @@ export default function Select(props) {
                 name={name}
                 value={value}
                 onChange={onChange}
+                {...(error && {error:true,helperText:error})}
             >
                 <MenuItem value="">None</MenuItem>
                 {
@@ -26,7 +27,7 @@ export default function Select(props) {
                     )
                 }
             </TextField>
-            {error && <FormHelperText>{error}</FormHelperText>}
+            {/*{error && <FormHelperText>{error}</FormHelperText>}*/}
         </FormControl>
     )
 }

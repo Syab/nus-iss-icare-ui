@@ -25,6 +25,7 @@ import {
 } from '@material-ui/icons';
 import {Button} from "@material-ui/core";
 import {signOut} from "next-auth/client";
+import {SERVER} from "../../config";
 
 const drawerWidth = 240;
 
@@ -137,13 +138,15 @@ export default function Layout(props) {
         setListPOpen(!listPOpen);
     };
 
-
     const handleLogout = () => {
         signOut({
-            callbackUrl: `${window.location.origin}/login`
+            callbackUrl: `${SERVER}/login`
         })
     }
 
+    const goToLoginPage = () => {
+        router.push('/login');
+    }
 
     return (
         <ThemeProvider theme={theme}>
@@ -171,7 +174,7 @@ export default function Layout(props) {
                             <strong>insuranceCare</strong>
                         </Typography>
                         <Button onClick={handleLogout} className={classes.button}>LOGOUT</Button>
-                        <Button className={classes.button}>PROFILE</Button>
+                        <Button onClick={goToLoginPage} className={classes.button}>HOME</Button>
                     </Toolbar>
 
                 </AppBar>

@@ -23,6 +23,7 @@ const Callback = (props) => {
         <div className={styles.main}>
             <Image
                 src="/authenticate.png"
+                alt="authenticating_image"
                 width={450}
                 height={450}
             />
@@ -30,7 +31,6 @@ const Callback = (props) => {
             <br/>
             <br/>
             <CircularProgress/>
-            {/*<Button onClick={handleClick}>hello</Button>*/}
             {/*<p>{code}</p>*/}
             {/*<p>{state}</p>*/}
         </div>
